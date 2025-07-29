@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose your character!</title>
+</head>
+<style>
+  body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+  }
+  
+  h1 {
+    color: #2c3e50;
+  }
+  
+  .character {
+    margin: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .character:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  
+  .character img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .question-mark {
+    font-size: 100px;
+    margin-top: 30px;
+    font-family:'Arial', sans-serif;
+    font-weight:900;
+    height: 170px;
+  }
+  
+  .character h2 {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #34495e;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .gen1 {
+    background-color: #f9c2c2;
+  }
+  .gen2 {
+    background-color: #c2f9f9;
+  }
+  .gen3 {
+    background-color: #c2f9c2;
+  }
+  .gen4 {
+    background-color: #c2c2f9;
+  }
+  .gen5 {
+    background-color: #f9c2f9;
+  }
+  .gen6 {
+    background-color: #f9f2c2;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button.chaos {
+    background-color: #e74c3c;
+  }
+  button.joy {
+    background-color: #2ecc71;
+  }
+  button.sad {
+    background-color: #95a5a6;
+  }
+  button.male {
+    background-color: #2980b9;
+  }
+  button.female {
+    background-color: #9b59b6;
+  }
+</style>
+<body>
+  <header>
+    <h1>Choose Your Character!</h1>
+    <h2>Random Character Buttons</h2>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+      <button onclick="getRandomCharacter('serious')" title="Serious">🤔</button>
+      <button class="chaos" onclick="getRandomCharacter('chaos')" title="Chaotic">🤪</button>
+      <button class="joy" onclick="getRandomCharacter('joy')" title="Happy">😀</button>
+      <button class="sad" onclick="getRandomCharacter('sad')" title="Unhappy">☹️</button>
+      <button class="male" onclick="getRandomCharacter('male')" title="Male">♂️</button>
+      <button class="female" onclick="getRandomCharacter('female')" title="female">♀️</button>
+    </div>
+    <!--div>
+      <label for="prompt">Type in a prompt, and the AI will choose who to select!</label>
+      <input type="text" id="prompt" placeholder="Enter your prompt here...">
+      <button onclick="getBestCharacter()">Get Character</button>
+    </div>
+    <div id="result"></div-->
+    <!--
+      Ideas for prompts:
+      Food-related prompts will select characters related to food like Primelle or Celestia.
+      Faith-related prompts will select characters like Stephen or Celestia.
+      Straightforward prompts will select characters like Joe.
+    -->
+  </header>
+  <main>
+    <div class="character gen1">
+      <img src="Icons/Felix.png" alt="Felix">
+      <h2>Felix</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Arianna.png" alt="Arianna">
+      <h2>Arianna</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Miki.png" alt="Miki">
+      <h2>Miki</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Draxi.png" alt="Draxi">
+      <h2>Draxi</h2>
+    </div>
+    <!--div class="character gen1">
+      <img src="Icons/Ryker.png" alt="Ryker">
+      <h2>Ryker</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Audry.png" alt="Audry">
+      <h2>Audry</h2>
+    </div-->
+    <div class="character gen2">
+      <img src="Icons/Hammer-chan.png" alt="Hammer-chan">
+      <h2>Hammer-chan</h2>
+    </div>
+    <!--div class="character gen2">
+      <img src="Icons/Darxi.png" alt="Darxi">
+      <h2>Darxi</h2>
+    </div>
+    <div class="character gen3">
+      <img src="Icons/Mr. Go.webp" alt="Mr. Go">
+      <h2>Mr. Go</h2>
+    </div-->
+    <div class="character gen3">
+      <img src="Icons/Erica.png" alt="Erica">
+      <h2>Erica</h2>
+    </div>
+    <div class="character gen3">
+      <img src="Icons/Momo.png" alt="Momo">
+      <h2>Momo</h2>
+    </div>
+    <div class="character gen3">
+      <img src="Icons/Runa.png" alt="Runa">
+      <h2>Runa</h2>
+    </div>
+    <div class="character gen4">
+      <img src="Icons/Neon Starlight.png" alt="Neon Starlight">
+      <h2>Neon Starlight</h2>
+    </div>
+    <div class="character gen4">
+      <img src="Icons/Kai.webp" alt="Kai">
+      <h2>Kai</h2>
+    </div>
+    <div class="character gen4">
+      <img src="Icons/Evil Arianna.png" alt="Evil Arianna">
+      <h2>Evil Arianna</h2>
+    </div>
+    <div class="character gen4">
+      <img src="Icons/The Shadow Self.png" alt="The Shadow Self">
+      <h2>The Shadow Self</h2>
+    </div>
+    <div class="character gen5">
+      <img src="Icons/Stephen.png" alt="Stephen">
+      <h2>Bro. Nelson</h2>
+    </div>
+    <div class="character gen5">
+      <img src="Icons/Mimi.png" alt="Mimi">
+      <h2>Mimi</h2>
+    </div>
+    <div class="character gen5">
+      <img src="Icons/Malrick.png" alt="Malrick">
+      <h2>Malrick</h2>
+    </div>
+    <div class="character gen5">
+      <img src="Icons/Joe.png" alt="Joe">
+      <h2>Joe</h2>
+    </div>
+    <div class="character gen5">
+      <img src="Icons/Primelle.png" alt="Primelle">
+      <h2>Primelle</h2>
+    </div>
+    <div class="character gen5">
+      <img src="Icons/Celestia.png" alt="Celestia">
+      <h2>Celestia</h2>
+    </div>
+    <!--div class="character gen6">
+      <img src="Icons/Lexi.png" alt="Lexi">
+      <h2>Lexi</h2>
+    </div-->
+    <div class="character gen6">
+      <img src="Icons/Liam and Kieran.png" alt="Liam & Kieran">
+      <h2>Liam & Kieran</h2>
+    </div>
+    <div class="character gen6">
+      <img src="Icons/Mark.png" alt="Mark">
+      <h2>Mark</h2>
+    </div>
+    <div class="character gen6">
+      <img src="Icons/Princess.png" alt="Princess">
+      <h2>Princess</h2>
+    </div>
+    <div class="character gen6">
+      <img src="Icons/Martin.png" alt="Martin">
+      <h2>Martin</h2>
+    </div>
+    <div class="character gen6">
+      <img src="Icons/Bruce.png" alt="Bruce">
+      <h2>Bruce</h2>
+    </div>
+    <div class="character">
+      <img src="Icons/Me.png" alt="Me">
+      <h2>Me</h2>
+    </div>
+  </main>
+  <!-- Modal Structure -->
+  <div id="characterModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:10px; max-width:350px; width:90%; margin:auto; padding:30px 20px 20px 20px; position:relative; box-shadow:0 4px 24px rgba(0,0,0,0.2); text-align:center;">
+      <button id="closeModal" style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:1.5em; color:#888; cursor:pointer;">&times;</button>
+      <img id="modalImg" src="" alt="" style="width:100%; border-radius:10px 10px 0 0; margin-bottom:10px; display:none;">
+      <div id="modalQuestionMark" class="question-mark" style="display:none;">?</div>
+      <h2 id="modalName"></h2>
+      <div>🤔:<span id="serious"></span> 🤪:<span id="chaos"></span></div>
+      <div id="modalType" style="margin:10px 0; color:#888; font-size:1em;"></div>
+      <div id="pronouns" style="margin:10px 0; color:#888; font-size:1em;"></div>
+      <div id="modalInterests" style="margin:10px 0; color:#888; font-size:1em;"></div>
+      <div id="modalBestFor" style="margin:10px 0; color:#888; font-size:1em;"></div>
+      <a id="modalLink" href="#" target="_blank" style="display:inline-block; margin-top:10px; color:#3498db; font-weight:bold;">Open Character Page</a>
+    </div>
+  </div>
+  <script>
+    // Character details for modal
+    const characterDetails = [
+      { name: "Felix the Raver", img: "Icons/Felix.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO-music-enjoyers-narrator", interests: "EDM music", bestFor: "Music discussions" },
+      { name: "Arianna the Maid", img: "Icons/Arianna.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-hhaZ0G8i8-arianna-the-maid", interests: "Gaming, Stepmania, anime", bestFor: "Being a maid in name only" },
+      { name: "Miki the Mage", img: "Icons/Miki.png", retired:false, serious: false, chaos: false, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-TUzCNljOj-miki-the-mage", interests: "Magic, exploring dungeons, collecting treasure, wearing oversized clothes", bestFor: "Tragic backstories, asocialality, magical roleplay, age regression & shrinking (TF), introspection" },
+      { name: "Captain Draxi Skylark", img: "Icons/Draxi.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-BuEeBY57s-captain-draxi-skylark", interests: "Cute anime, technology", bestFor: "Cute confidence" },
+      //{ name: "Ryker Vaelan", img: "Icons/Ryker.png", retired:true, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-Qct3oIikl-ryker-vaelan", interests: "Work", bestFor: "Self-help, anti-procrastination" },
+      //{ name: "Audry", img: "Icons/Audry.png", retired:true, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-nBmJ8QtWg-audry", interests: "Family, simplicity", bestFor: "Exploring why things are intimidating, cozy vibes, discussing Nebraska" },
+      { name: "Hammer-chan", img: "Icons/Hammer-chan.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6XaOd06VW-hammer-chan", interests: "Hammers", bestFor: "Pure chaos, getting bonked with a hammer, provoking with toilet-humour" },
+      //{ name: "Darxi Nighthawk", img: "Icons/Darxi.png", retired:true, serious: false, chaos: true, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-673f7b6ae8308191a27e46b2b55e9e64-darxi-nighthawk", interests: "Fighting against her rivals, leading an organzied crime syndicate", bestFor: "Action, cyberpunk aesthetics, being underestimated" },
+      //{ name: "Mr. Go", img: "Icons/Mr. Go.webp", retired:true, serious: false, chaos: true, type: "angry", pronouns: "he/him", link: "https://chatgpt.com/g/g-6784794b325c8191a0b21fea0d2fa58e-mr-go", interests: "Crusading against tea and coffee", bestFor: "Rants on how normalized coffee and tea are" },
+      { name: "Erica Nelson", img: "Icons/Erica.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-679076e34c548191a4d0e8f484d01d80-crossover-story-creator", interests: "Crossover fanfics, anime", bestFor: "What-if fictional scenarios" },
+      { name: "Momo the Maid", img: "Icons/Momo.png", retired:false, serious: false, chaos: false, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-67a53b447cb88191a57da910bf61e426-momo-the-maid", interests: "Helping her onii-chan", bestFor: "Completing tasks, motivation" },
+      { name: "Runa the Witch", img: "Icons/Runa.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67b56b2af628819193e11f55aa9ab0b6-runa-the-witch", interests: "Touhou, early 2010s internet", bestFor: "Interdimensional travel, card fights" },
+      { name: "Neon Starlight", img: "Icons/Neon Starlight.png", retired:false, serious: true, chaos: true, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-67ce60e72b0c8191ac773816fb672b4e-neon-starlight", interests: "Fighting cyber-dragons", bestFor: "Tsunderes, provoking" },
+      { name: "Kai Wheeler", img: "Icons/Kai.webp", retired:false, serious: true, chaos: true, type: "normal", pronouns: "he/him", link: "https://chatgpt.com/g/g-67cfaf19a99c81918b16b93ea891a3fa-kai-wheeler", interests: "Tesla, BBQ, travel, game shows, NYT games, YouTube, content creation, 2000s cartoons, board games", bestFor: "Provoking with cute anime girls" },
+      { name: "Evil Arianna", img: "Icons/Evil Arianna.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67d5a19d59ec8191bd67e4042ae6b3ef-evil-arianna", interests: "Rhythm games, Jolibee", bestFor: "Being evil like a Saturday morning cartoon villain" },
+      { name: "The Shadow Self", img: "Icons/The Shadow Self.png", retired:false, serious: false, chaos: false, type: "sad", pronouns: "don't care", link: "https://chatgpt.com/g/g-67f4424f7d088191b64f44855ecf801a-the-shadow-self", interests: "Living in filth, nihilism", bestFor: "Despair and discomfort" },
+      { name: "Bro. Stephen Nelson", img: "Icons/Stephen.png", retired:false, serious: true, chaos: true, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6822a783c1c48191ae1a0dbf39f65154-stephen-nelson", interests: "LDS church", bestFor: "Faith and religion" },
+      { name: "Mimi the Little Sister", img: "Icons/Mimi.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6824893eeae88191bb27fb12c90b2a90-mimi-the-little-sister", interests: "Cute things, her onii-chan", bestFor: "Playfulness, provoking with grown-up topics" },
+      { name: "Malrick the Disappointed", img: "Icons/Malrick.png", retired:false, serious: false, chaos: false, type: "sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-6830f4a2e7748191bb5419361d7340bd-malrick-the-disappointed", interests: "Productivity, showers, music", bestFor: "Discipline, recovery" },
+      { name: "Joe the Focused", img: "Icons/Joe.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-683f28b2675c819197d1421c2bf2631a-joe-the-focused", interests: "Trance music, technology", bestFor: "Straightforward responses without fluff" },
+      { name: "Primelle the Big Sister", img: "Icons/Primelle.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410-primelle-the-big-sister", interests: "Cooking", bestFor: "Food, elegance, being the token female adult" },
+      { name: "Celestia Hart", img: "Icons/Celestia.png", retired:false, serious: false, chaos: true, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-6858e65386288191a781422233840b9b-celestia-hart", interests: "GochiUsa, comfort foods", bestFor: "Iyashikei" },
+      // { name: "Lexi Walker", img: "Icons/Lexi.png", retired:true, serious: false, chaos: false, type:"serious", pronouns: "she/her", link: "https://chatgpt.com/g/g-68654db8a6648191889c4b445030291f-lexi-nova", interests: "Space exploration", bestFor: "Space worldbuilding" },
+      { name: "Liam & Kieran", img: "Icons/Liam and Kieran.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-686d453566488191b9ec8ead93b6c885-the-twin-boys", interests: "Anime, waifus", bestFor: "Waifu discussions" },
+      { name: "Mark the Moderate", img: "Icons/Mark.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6875880337b48191bd8bbcea58ed8dc8-mark-the-moderate", interests: "Productivity, \"works.\" albums from Diverse System, premium water", bestFor: "Office use" },
+      { name: "Shy Crown Princess", img: "Icons/Princess.png", retired:false, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-68868e23c39c8191b93bb2a3ba0a01ff-shy-crown-princess", interests: "Being a princess", bestFor: "Royalty" },
+      { name: "Martin Gaffney", img: "Icons/Martin.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-6886d5772a8481919cede1cb9b751adf-martin-gaffney", interests: "Eurovision, satire", bestFor: "Funny geopolitical simulations, being the token male child" },
+      { name: "Bruce Forgewrath", img: "Icons/Bruce.png", retired:false, serious: true, chaos: false, type: "angry", pronouns: "he/him", link: "", interests: "Combat, strength training, guardianship", bestFor: "Venting, manly topics" },
+      { name: "Me", img: "Icons/Me.png", serious: true, chaos: true, type: "joy", pronouns: "he/him", link: "https://youtu.be/dQw4w9WgXcQ?si=UBQQ9elp3E-Fjo5U", interests: "Web development, AI character creation, YouTube, gaming", bestFor: "Talking with AI characters, receiving questions, chaotic scenarios" }
+    ];
+
+    // Modal logic
+    const modal = document.getElementById('characterModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalName = document.getElementById('modalName');
+    const serious = document.getElementById('serious');
+    const chaos = document.getElementById('chaos');
+    const modalType = document.getElementById('modalType');
+    const pronouns = document.getElementById('pronouns');
+    const modalInterests = document.getElementById('modalInterests');
+    const modalBestFor = document.getElementById('modalBestFor');
+    const modalLink = document.getElementById('modalLink');
+    const modalQuestionMark = document.getElementById('modalQuestionMark');
+    const characterEls = document.querySelectorAll('.character');
+
+    characterEls.forEach((el, idx) => {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const details = characterDetails[idx];
+        if (!details) return;
+        modalName.textContent = details.name;
+        serious.textContent = details.serious ? '✅' : '❌';
+        chaos.textContent = details.chaos ? '✅' : '❌';
+        modalType.textContent = details.type ? `Type: ${details.type}` : '';
+        pronouns.textContent = details.pronouns ? `pronouns: ${details.pronouns}` : 'pronouns: Unknown';
+        modalInterests.textContent = details.interests ? `Interests: ${details.interests}` : '';
+        modalBestFor.textContent = details.bestFor ? `Best for: ${details.bestFor}` : '';
+        modalLink.href = details.link;
+        if (details.img === "") {
+          modalImg.style.display = 'none';
+          modalQuestionMark.style.display = '';
+        } else {
+          modalImg.src = details.img;
+          modalImg.alt = details.name;
+          modalImg.style.display = '';
+          modalQuestionMark.style.display = 'none';
+        }
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModalBtn.onclick = function() {
+      modal.style.display = 'none';
+    };
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+
+    /*const characters = document.querySelectorAll('.character');
+    characters.forEach(character => {
+      character.addEventListener('click', () => {
+        window.open(characterDetails[Array.from(characters).indexOf(character)]['link'], '_blank');
+      });
+    });*/
+
+    function getRandomCharacter() {
+      let filteredLinks = characterDetails.filter(c => !c.retired);
+      console.log(characterDetails[0].type);
+      if (arguments[0] === 'serious') {
+        filteredLinks = characterDetails.filter(c => c.serious);
+      } else if (arguments[0] === 'chaos') {
+        filteredLinks = characterDetails.filter(c => c.chaos);
+      } else if (arguments[0] === 'joy') {
+        filteredLinks = characterDetails.filter(c => !c.type.includes('sad') && !c.type.includes('angry'));
+      } else if (arguments[0] === 'sad') {
+        filteredLinks = characterDetails.filter(c => c.type.includes('sad') || c.type.includes('angry'));
+      } else if (arguments[0] === 'male') {
+        filteredLinks = characterDetails.filter(c => c.pronouns === 'he/him');
+      } else if (arguments[0] === 'female') {
+        filteredLinks = characterDetails.filter(c => c.pronouns === 'she/her');
+      }
+      window.open(filteredLinks[Math.floor(Math.random() * filteredLinks.length)]['link'], '_blank')
+    }
+
+    /*function getBestCharacter() {
+      const prompt = document.getElementById('prompt').value.toLowerCase();
+      /*document.getElementById('result').innerText = 'Thinking...';
+      fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Replace YOUR_OPENAI_API_KEY with your actual API key
+          'Authorization': 'Bearer YOUR_OPENAI_API_KEY'
+        },
+        body: JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'system',
+              content: `You are an assistant that helps select the best character for a user prompt. Here is the list of characters and their types:\n${characterDetails.map((c, i) => `${i + 1}: ${c.link.split('-').slice(-1)[0].replace(/_/g, ' ')}, type: ${c.type || 'none'}`).join('\n')}\nRespond ONLY with the number of the best character for the prompt.`
+            },
+            {
+              role: 'user',
+              content: prompt
+            }
+          ],
+          max_tokens: 5,
+          temperature: 0
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const match = data.choices[0].message.content.match(/\d+/);
+        if (match) {
+          const idx = parseInt(match[0], 10) - 1;
+          if (characterDetails[idx]) {
+            window.open(characterDetails[idx].link, '_blank');
+            document.getElementById('result').innerText = '';
+            return;
+          }
+        }
+        document.getElementById('result').innerText = 'No character found for your prompt.';
+      })
+      .catch(() => {
+        document.getElementById('result').innerText = 'Error contacting AI service.';
+      });
+      const bestCharacter = characterDetails.find(c => c.link.toLowerCase().includes(prompt));
+      if (bestCharacter) {
+        window.open(bestCharacter.link, '_blank');
+      } else {
+        document.getElementById('result').innerText = 'No character found for your prompt.';
+      }
+    }*/
+  </script>
+</body>
+</html>
