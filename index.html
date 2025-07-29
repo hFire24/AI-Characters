@@ -11,7 +11,7 @@
     font-family: Arial, sans-serif;
     color: #333;
     text-align: center;
-    padding: 50px;
+    padding: 45px;
   }
   
   h1 {
@@ -19,13 +19,13 @@
   }
   
   .character {
-    margin: 20px;
+    margin: 18px;
     display: inline-block;
-    width: 200px;
-    height: 300px;
+    width: 180px;
+    height: 270px;
     background-color: #ecf0f1;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 9px;
+    box-shadow: 0 1.8px 9px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
   
@@ -37,20 +37,20 @@
   .character img {
     width: 100%;
     height: auto;
-    border-radius: 10px 10px 0 0;
+    border-radius: 9px 9px 0 0;
   }
 
   .question-mark {
-    font-size: 100px;
-    margin-top: 30px;
+    font-size: 90px;
+    margin-top: 27px;
     font-family:'Arial', sans-serif;
     font-weight:900;
-    height: 170px;
+    height: 153px;
   }
   
   .character h2 {
-    margin-top: 10px;
-    font-size: 1.5em;
+    margin-top: 9px;
+    font-size: 1.4em;
     color: #34495e;
   }
 
@@ -102,12 +102,217 @@
   button.female {
     background-color: #9b59b6;
   }
+  #characterModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+  }
+
+  #characterModal.active {
+    display: flex;
+  }
+
+  #characterModal > div {
+    background: #fff;
+    border-radius: 10px;
+    max-width: 350px;
+    max-height: 100%;
+    width: 90%;
+    margin: auto;
+    padding: 30px 20px 20px 20px;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+
+  #closeModal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #888;
+    cursor: pointer;
+  }
+
+  #modalImg {
+    width: 100%;
+    max-height: 350px;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 10px;
+    display: none;
+  }
+
+  #modalQuestionMark {
+    display: none;
+  }
+
+  #modalType,
+  #pronouns,
+  #modalInterests,
+  #modalBestFor {
+    margin: 10px 0;
+    color: #888;
+    font-size: 1em;
+  }
+
+  #modalLink {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    font-weight: bold;
+  }
+
+  @media (max-width: 800px) {
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .character {
+      width: 90vw;
+      max-width: 300px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      margin: 10px auto;
+      box-sizing: border-box;
+      padding: 5px 10px;
+    }
+    .character img {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      margin-right: 12px;
+      margin-bottom: 0;
+      object-fit: cover;
+    }
+    .character h2 {
+      margin: 0;
+      font-size: 1.1em;
+      text-align: left;
+    }
+  }
+  @media (max-height: 700px) {
+    #characterModal.active {
+      align-items: flex-start;
+    }
+    #characterModal > div {
+      flex-direction: row;
+      display: flex;
+      max-width: 95vw;
+      width: 95vw;
+      padding: 15px 10px;
+      min-height: 120px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    #modalHeader {
+      padding-right: 16px;
+    }
+    #modalImg {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 0;
+      margin-right: 16px;
+      border-radius: 10px;
+      object-fit: cover;
+      display: block;
+    }
+    #modalQuestionMark {
+      width: 100px;
+      height: 100px;
+      font-size: 70px;
+      margin-top: 0;
+      margin-right: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #characterModal > div > h2,
+    #characterModal > div > div,
+    #characterModal > div > a {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 1em;
+      word-break: break-word;
+    }
+    #closeModal {
+      top: 5px;
+      right: 8px;
+      font-size: 1.2em;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #181a1b;
+      color: #e0e0e0;
+    }
+    h1 {
+      color: #e1eafc;
+    }
+    .character {
+      background-color: #23272a;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+    .character h2 {
+      color: #e1eafc;
+    }
+    .gen1 { background-color: #4b2c2c; }
+    .gen2 { background-color: #2c4b4b; }
+    .gen3 { background-color: #2c4b2c; }
+    .gen4 { background-color: #2c2c4b; }
+    .gen5 { background-color: #4b2c4b; }
+    .gen6 { background-color: #4b432c; }
+    button {
+      background-color: #2980b9;
+      color: #fff;
+    }
+    button.chaos { background-color: #c0392b; }
+    button.joy { background-color: #27ae60; }
+    button.sad { background-color: #7f8c8d; }
+    button.male { background-color: #2471a3; }
+    button.female { background-color: #8e44ad; }
+    #characterModal {
+      background: rgba(20,20,20,0.8);
+    }
+    #characterModal > div {
+      background: #23272a;
+      color: #e0e0e0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.8);
+    }
+    #closeModal {
+      color: #bbb;
+    }
+    #modalLink {
+      color: #5dade2;
+    }
+    #modalType,
+    #pronouns,
+    #modalInterests,
+    #modalBestFor {
+      color: #bbb;
+    }
+  }
 </style>
 <body>
   <header>
     <h1>Choose Your Character!</h1>
     <h2>Random Character Buttons</h2>
-    <div style="display: flex; gap: 10px; justify-content: center;">
+    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
       <button onclick="getRandomCharacter('serious')" title="Serious">🤔</button>
       <button class="chaos" onclick="getRandomCharacter('chaos')" title="Chaotic">🤪</button>
       <button class="joy" onclick="getRandomCharacter('joy')" title="Happy">😀</button>
@@ -247,18 +452,22 @@
     </div>
   </main>
   <!-- Modal Structure -->
-  <div id="characterModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
-    <div style="background:#fff; border-radius:10px; max-width:350px; width:90%; margin:auto; padding:30px 20px 20px 20px; position:relative; box-shadow:0 4px 24px rgba(0,0,0,0.2); text-align:center;">
-      <button id="closeModal" style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:1.5em; color:#888; cursor:pointer;">&times;</button>
-      <img id="modalImg" src="" alt="" style="width:100%; border-radius:10px 10px 0 0; margin-bottom:10px; display:none;">
-      <div id="modalQuestionMark" class="question-mark" style="display:none;">?</div>
-      <h2 id="modalName"></h2>
-      <div>🤔:<span id="serious"></span> 🤪:<span id="chaos"></span></div>
-      <div id="modalType" style="margin:10px 0; color:#888; font-size:1em;"></div>
-      <div id="pronouns" style="margin:10px 0; color:#888; font-size:1em;"></div>
-      <div id="modalInterests" style="margin:10px 0; color:#888; font-size:1em;"></div>
-      <div id="modalBestFor" style="margin:10px 0; color:#888; font-size:1em;"></div>
-      <a id="modalLink" href="#" target="_blank" style="display:inline-block; margin-top:10px; color:#3498db; font-weight:bold;">Open Character Page</a>
+  <div id="characterModal">
+    <div>
+      <button id="closeModal">&times;</button>
+      <div id="modalHeader">
+        <img id="modalImg" src="" alt="">
+        <div id="modalQuestionMark" class="question-mark">?</div>
+        <h2 id="modalName"></h2>
+      </div>
+      <div>
+        <div>🤔:<span id="serious"></span> 🤪:<span id="chaos"></span></div>
+        <div id="modalType"></div>
+        <div id="pronouns"></div>
+        <div id="modalInterests"></div>
+        <div id="modalBestFor"></div>
+        <a id="modalLink" href="#" target="_blank">Open Character Page</a>
+      </div>
     </div>
   </div>
   <script>
@@ -330,7 +539,7 @@
         } else {
           modalImg.src = details.img;
           modalImg.alt = details.name;
-          modalImg.style.display = '';
+          modalImg.style.display = 'inline';
           modalQuestionMark.style.display = 'none';
         }
         modal.style.display = 'flex';
@@ -343,13 +552,6 @@
     window.addEventListener('click', function(e) {
       if (e.target === modal) modal.style.display = 'none';
     });
-
-    /*const characters = document.querySelectorAll('.character');
-    characters.forEach(character => {
-      character.addEventListener('click', () => {
-        window.open(characterDetails[Array.from(characters).indexOf(character)]['link'], '_blank');
-      });
-    });*/
 
     function getRandomCharacter() {
       let filteredLinks = characterDetails.filter(c => !c.retired);
@@ -369,56 +571,6 @@
       }
       window.open(filteredLinks[Math.floor(Math.random() * filteredLinks.length)]['link'], '_blank')
     }
-
-    /*function getBestCharacter() {
-      const prompt = document.getElementById('prompt').value.toLowerCase();
-      /*document.getElementById('result').innerText = 'Thinking...';
-      fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // Replace YOUR_OPENAI_API_KEY with your actual API key
-          'Authorization': 'Bearer YOUR_OPENAI_API_KEY'
-        },
-        body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          messages: [
-            {
-              role: 'system',
-              content: `You are an assistant that helps select the best character for a user prompt. Here is the list of characters and their types:\n${characterDetails.map((c, i) => `${i + 1}: ${c.link.split('-').slice(-1)[0].replace(/_/g, ' ')}, type: ${c.type || 'none'}`).join('\n')}\nRespond ONLY with the number of the best character for the prompt.`
-            },
-            {
-              role: 'user',
-              content: prompt
-            }
-          ],
-          max_tokens: 5,
-          temperature: 0
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        const match = data.choices[0].message.content.match(/\d+/);
-        if (match) {
-          const idx = parseInt(match[0], 10) - 1;
-          if (characterDetails[idx]) {
-            window.open(characterDetails[idx].link, '_blank');
-            document.getElementById('result').innerText = '';
-            return;
-          }
-        }
-        document.getElementById('result').innerText = 'No character found for your prompt.';
-      })
-      .catch(() => {
-        document.getElementById('result').innerText = 'Error contacting AI service.';
-      });
-      const bestCharacter = characterDetails.find(c => c.link.toLowerCase().includes(prompt));
-      if (bestCharacter) {
-        window.open(bestCharacter.link, '_blank');
-      } else {
-        document.getElementById('result').innerText = 'No character found for your prompt.';
-      }
-    }*/
   </script>
 </body>
 </html>
