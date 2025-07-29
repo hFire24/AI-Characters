@@ -19,13 +19,13 @@
   }
   
   .character {
-    margin: 18px;
+    margin: 10px;
     display: inline-block;
-    width: 180px;
-    height: 270px;
+    width: 200px;
+    height: 250px;
     background-color: #ecf0f1;
-    border-radius: 9px;
-    box-shadow: 0 1.8px 9px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
   
@@ -37,20 +37,20 @@
   .character img {
     width: 100%;
     height: auto;
-    border-radius: 9px 9px 0 0;
+    border-radius: 10px 10px 0 0;
   }
 
   .question-mark {
-    font-size: 90px;
-    margin-top: 27px;
+    font-size: 100px;
+    margin-top: 30px;
     font-family:'Arial', sans-serif;
     font-weight:900;
-    height: 153px;
+    height: 170px;
   }
   
   .character h2 {
-    margin-top: 9px;
-    font-size: 1.4em;
+    margin: 10px 0;
+    font-size: 24px;
     color: #34495e;
   }
 
@@ -473,34 +473,34 @@
   <script>
     // Character details for modal
     const characterDetails = [
-      { name: "Felix the Raver", img: "Icons/Felix.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO-music-enjoyers-narrator?model=gpt-4o", interests: "EDM music", bestFor: "Music discussions" },
-      { name: "Arianna the Maid", img: "Icons/Arianna.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-hhaZ0G8i8-arianna-the-maid?model=gpt-4o", interests: "Gaming, Stepmania, anime", bestFor: "Being a maid in name only" },
-      { name: "Miki the Mage", img: "Icons/Miki.png", retired:false, serious: false, chaos: false, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-TUzCNljOj-miki-the-mage?model=gpt-4o", interests: "Magic, exploring dungeons, collecting treasure, wearing oversized clothes", bestFor: "Tragic backstories, asocialality, magical roleplay, age regression & shrinking (TF), introspection" },
-      { name: "Captain Draxi Skylark", img: "Icons/Draxi.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-BuEeBY57s-captain-draxi-skylark?model=gpt-4o", interests: "Cute anime, technology", bestFor: "Cute confidence" },
-      //{ name: "Ryker Vaelan", img: "Icons/Ryker.png", retired:true, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-Qct3oIikl-ryker-vaelan", interests: "Work", bestFor: "Self-help, anti-procrastination" },
-      //{ name: "Audry", img: "Icons/Audry.png", retired:true, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-nBmJ8QtWg-audry", interests: "Family, simplicity", bestFor: "Exploring why things are intimidating, cozy vibes, discussing Nebraska" },
-      { name: "Hammer-chan", img: "Icons/Hammer-chan.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6XaOd06VW-hammer-chan?model=gpt-4o", interests: "Hammers", bestFor: "Pure chaos, getting bonked with a hammer, provoking with toilet-humour" },
-      //{ name: "Darxi Nighthawk", img: "Icons/Darxi.png", retired:true, serious: false, chaos: true, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-673f7b6ae8308191a27e46b2b55e9e64-darxi-nighthawk", interests: "Fighting against her rivals, leading an organzied crime syndicate", bestFor: "Action, cyberpunk aesthetics, being underestimated" },
-      //{ name: "Mr. Go", img: "Icons/Mr. Go.webp", retired:true, serious: false, chaos: true, type: "angry", pronouns: "he/him", link: "https://chatgpt.com/g/g-6784794b325c8191a0b21fea0d2fa58e-mr-go", interests: "Crusading against tea and coffee", bestFor: "Rants on how normalized coffee and tea are" },
-      { name: "Erica Nelson", img: "Icons/Erica.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-679076e34c548191a4d0e8f484d01d80-crossover-story-creator?model=gpt-4o", interests: "Crossover fanfics, anime", bestFor: "What-if fictional scenarios" },
-      { name: "Momo the Maid", img: "Icons/Momo.png", retired:false, serious: false, chaos: false, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-67a53b447cb88191a57da910bf61e426-momo-the-maid?model=gpt-4o", interests: "Helping her onii-chan", bestFor: "Completing tasks, motivation" },
-      { name: "Runa the Witch", img: "Icons/Runa.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67b56b2af628819193e11f55aa9ab0b6-runa-the-witch?model=gpt-4o", interests: "Touhou, early 2010s internet", bestFor: "Interdimensional travel, card fights" },
-      { name: "Neon Starlight", img: "Icons/Neon Starlight.png", retired:false, serious: true, chaos: true, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-67ce60e72b0c8191ac773816fb672b4e-neon-starlight?model=gpt-4o", interests: "Fighting cyber-dragons", bestFor: "Tsunderes, provoking" },
-      { name: "Kai Wheeler", img: "Icons/Kai.webp", retired:false, serious: true, chaos: true, type: "normal", pronouns: "he/him", link: "https://chatgpt.com/g/g-67cfaf19a99c81918b16b93ea891a3fa-kai-wheeler?model=gpt-4o", interests: "Tesla, BBQ, travel, game shows, NYT games, YouTube, content creation, 2000s cartoons, board games", bestFor: "Provoking with cute anime girls" },
-      { name: "Evil Arianna", img: "Icons/Evil Arianna.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67d5a19d59ec8191bd67e4042ae6b3ef-evil-arianna?model=gpt-4o", interests: "Rhythm games, Jolibee", bestFor: "Being evil like a Saturday morning cartoon villain" },
-      { name: "The Shadow Self", img: "Icons/The Shadow Self.png", retired:false, serious: false, chaos: false, type: "sad", pronouns: "don't care", link: "https://chatgpt.com/g/g-67f4424f7d088191b64f44855ecf801a-the-shadow-self?model=gpt-4o", interests: "Living in filth, nihilism", bestFor: "Despair and discomfort" },
-      { name: "Bro. Stephen Nelson", img: "Icons/Stephen.png", retired:false, serious: true, chaos: true, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6822a783c1c48191ae1a0dbf39f65154-stephen-nelson", interests: "LDS church", bestFor: "Faith and religion" },
-      { name: "Mimi the Little Sister", img: "Icons/Mimi.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6824893eeae88191bb27fb12c90b2a90-mimi-the-little-sister?model=gpt-4o", interests: "Cute things, her onii-chan", bestFor: "Playfulness, provoking with grown-up topics" },
-      { name: "Malrick the Disappointed", img: "Icons/Malrick.png", retired:false, serious: false, chaos: false, type: "sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-6830f4a2e7748191bb5419361d7340bd-malrick-the-disappointed", interests: "Productivity, showers, music", bestFor: "Discipline, recovery" },
-      { name: "Joe the Focused", img: "Icons/Joe.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-683f28b2675c819197d1421c2bf2631a-joe-the-focused", interests: "Trance music, technology", bestFor: "Straightforward responses without fluff" },
-      { name: "Primelle the Big Sister", img: "Icons/Primelle.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410-primelle-the-big-sister", interests: "Cooking", bestFor: "Food, elegance, being the token female adult" },
-      { name: "Celestia Hart", img: "Icons/Celestia.png", retired:false, serious: false, chaos: true, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-6858e65386288191a781422233840b9b-celestia-hart", interests: "GochiUsa, comfort foods", bestFor: "Iyashikei" },
-      // { name: "Lexi Walker", img: "Icons/Lexi.png", retired:true, serious: false, chaos: false, type:"serious", pronouns: "she/her", link: "https://chatgpt.com/g/g-68654db8a6648191889c4b445030291f-lexi-nova", interests: "Space exploration", bestFor: "Space worldbuilding" },
-      { name: "Liam & Kieran", img: "Icons/Liam and Kieran.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-686d453566488191b9ec8ead93b6c885-the-twin-boys", interests: "Anime, waifus", bestFor: "Waifu discussions" },
-      { name: "Mark the Moderate", img: "Icons/Mark.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6875880337b48191bd8bbcea58ed8dc8-mark-the-moderate", interests: "Productivity, \"works.\" albums from Diverse System, premium water", bestFor: "Office use" },
-      { name: "Shy Crown Princess", img: "Icons/Princess.png", retired:false, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-68868e23c39c8191b93bb2a3ba0a01ff-shy-crown-princess", interests: "Being a princess", bestFor: "Royalty" },
-      { name: "Martin Gaffney", img: "Icons/Martin.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-6886d5772a8481919cede1cb9b751adf-martin-gaffney", interests: "Eurovision, satire", bestFor: "Funny geopolitical simulations, being the token male child" },
-      { name: "Bruce Forgewrath", img: "Icons/Bruce.png", retired:false, serious: true, chaos: false, type: "angry", pronouns: "he/him", link: "https://chatgpt.com/g/g-68883c6025048191b1bea26054bbbdf4-bruce-forgewrath", interests: "Combat, strength training, guardianship", bestFor: "Venting, manly topics" },
+      { name: "Felix the Raver", img: "Icons/Felix.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "EDM music", bestFor: "Music discussions" },
+      { name: "Arianna the Maid", img: "Icons/Arianna.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-hhaZ0G8i8", interests: "Gaming, Stepmania, anime", bestFor: "Being a maid in name only" },
+      { name: "Miki the Mage", img: "Icons/Miki.png", retired:false, serious: false, chaos: false, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-TUzCNljOj", interests: "Magic, exploring dungeons, collecting treasure, wearing oversized clothes", bestFor: "Tragic backstories, asocialality, magical roleplay, age regression & shrinking (TF), introspection" },
+      { name: "Captain Draxi Skylark", img: "Icons/Draxi.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-BuEeBY57s", interests: "Cute anime, technology", bestFor: "Cute confidence" },
+      //{ name: "Ryker Vaelan", img: "Icons/Ryker.png", retired:true, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-Qct3oIikl", interests: "Work", bestFor: "Self-help, anti-procrastination" },
+      //{ name: "Audry", img: "Icons/Audry.png", retired:true, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-nBmJ8QtWg", interests: "Family, simplicity", bestFor: "Exploring why things are intimidating, cozy vibes, discussing Nebraska" },
+      { name: "Hammer-chan", img: "Icons/Hammer-chan.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6XaOd06VW", interests: "Hammers", bestFor: "Pure chaos, getting bonked with a hammer, provoking with toilet-humour" },
+      //{ name: "Darxi Nighthawk", img: "Icons/Darxi.png", retired:true, serious: false, chaos: true, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-673f7b6ae8308191a27e46b2b55e9e64", interests: "Fighting against her rivals, leading an organzied crime syndicate", bestFor: "Action, cyberpunk aesthetics, being underestimated" },
+      //{ name: "Mr. Go", img: "Icons/Mr. Go.webp", retired:true, serious: false, chaos: true, type: "angry", pronouns: "he/him", link: "https://chatgpt.com/g/g-6784794b325c8191a0b21fea0d2fa58e", interests: "Crusading against tea and coffee", bestFor: "Rants on how normalized coffee and tea are" },
+      { name: "Erica Nelson", img: "Icons/Erica.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-679076e34c548191a4d0e8f484d01d80", interests: "Crossover fanfics, anime", bestFor: "What-if fictional scenarios" },
+      { name: "Momo the Maid", img: "Icons/Momo.png", retired:false, serious: false, chaos: false, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-67a53b447cb88191a57da910bf61e426", interests: "Helping her onii-chan", bestFor: "Completing tasks, motivation" },
+      { name: "Runa the Witch", img: "Icons/Runa.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67b56b2af628819193e11f55aa9ab0b6", interests: "Touhou, early 2010s internet", bestFor: "Interdimensional travel, card fights" },
+      { name: "Neon Starlight", img: "Icons/Neon Starlight.png", retired:false, serious: true, chaos: true, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-67ce60e72b0c8191ac773816fb672b4e", interests: "Fighting cyber-dragons", bestFor: "Tsunderes, provoking" },
+      { name: "Kai Wheeler", img: "Icons/Kai.webp", retired:false, serious: true, chaos: true, type: "normal", pronouns: "he/him", link: "https://chatgpt.com/g/g-67cfaf19a99c81918b16b93ea891a3fa", interests: "Tesla, BBQ, travel, game shows, NYT games, YouTube, content creation, 2000s cartoons, board games", bestFor: "Provoking with cute anime girls" },
+      { name: "Evil Arianna", img: "Icons/Evil Arianna.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67d5a19d59ec8191bd67e4042ae6b3ef", interests: "Rhythm games, Jolibee", bestFor: "Being evil like a Saturday morning cartoon villain" },
+      { name: "The Shadow Self", img: "Icons/The Shadow Self.png", retired:false, serious: false, chaos: false, type: "sad", pronouns: "don't care", link: "https://chatgpt.com/g/g-67f4424f7d088191b64f44855ecf801a", interests: "Living in filth, nihilism", bestFor: "Despair and discomfort" },
+      { name: "Bro. Stephen Nelson", img: "Icons/Stephen.png", retired:false, serious: true, chaos: true, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6822a783c1c48191ae1a0dbf39f65154", interests: "LDS church", bestFor: "Faith and religion" },
+      { name: "Mimi the Little Sister", img: "Icons/Mimi.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6824893eeae88191bb27fb12c90b2a90", interests: "Cute things, her onii-chan", bestFor: "Playfulness, provoking with grown-up topics (e.g., taxes and politics)" },
+      { name: "Malrick the Disappointed", img: "Icons/Malrick.png", retired:false, serious: false, chaos: false, type: "sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-6830f4a2e7748191bb5419361d7340bd", interests: "Productivity, showers, music", bestFor: "Discipline, recovery" },
+      { name: "Joe the Focused", img: "Icons/Joe.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-683f28b2675c819197d1421c2bf2631a", interests: "Trance music, technology", bestFor: "Straightforward responses without fluff" },
+      { name: "Primelle the Big Sister", img: "Icons/Primelle.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410", interests: "Cooking", bestFor: "Food, elegance, being the token female adult" },
+      { name: "Celestia Hart", img: "Icons/Celestia.png", retired:false, serious: false, chaos: true, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-6858e65386288191a781422233840b9b", interests: "GochiUsa, comfort foods", bestFor: "Iyashikei" },
+      // { name: "Lexi Walker", img: "Icons/Lexi.png", retired:true, serious: false, chaos: false, type:"serious", pronouns: "she/her", link: "https://chatgpt.com/g/g-68654db8a6648191889c4b445030291f", interests: "Space exploration", bestFor: "Space worldbuilding" },
+      { name: "Liam & Kieran", img: "Icons/Liam and Kieran.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-686d453566488191b9ec8ead93b6c885", interests: "Anime, waifus", bestFor: "Waifu discussions" },
+      { name: "Mark the Moderate", img: "Icons/Mark.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6875880337b48191bd8bbcea58ed8dc8", interests: "Productivity, \"works.\" albums from Diverse System, premium water", bestFor: "Office use" },
+      { name: "Shy Crown Princess", img: "Icons/Princess.png", retired:false, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-68868e23c39c8191b93bb2a3ba0a01ff", interests: "Being a princess", bestFor: "Royalty" },
+      { name: "Martin Gaffney", img: "Icons/Martin.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-6886d5772a8481919cede1cb9b751adf", interests: "Eurovision, satire", bestFor: "Funny geopolitical simulations, being the token male child" },
+      { name: "Bruce Forgewrath", img: "Icons/Bruce.png", retired:false, serious: true, chaos: false, type: "angry", pronouns: "he/him", link: "https://chatgpt.com/g/g-68883c6025048191b1bea26054bbbdf4", interests: "Combat, strength training, guardianship", bestFor: "Venting, manly topics" },
       { name: "Me", img: "Icons/Me.png", retired:true, serious: true, chaos: true, type: "joy", pronouns: "he/him", link: "https://youtu.be/dQw4w9WgXcQ?si=UBQQ9elp3E-Fjo5U", interests: "Web development, AI character creation, YouTube, gaming", bestFor: "Talking with AI characters, receiving questions, chaotic scenarios" }
     ];
 
