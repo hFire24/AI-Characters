@@ -95,6 +95,12 @@ button.male {
 button.female {
   background-color: #9b59b6;
 }
+button.moe0 {
+  background-color: #7f8c8d;
+}
+button.moe {
+  background-color: pink;
+}
 #characterModal {
   display: none;
   position: fixed;
