@@ -208,6 +208,14 @@ button.female {
     font-size: 1.1em;
     text-align: left;
   }
+  .character .question-mark {
+    font-size: 42px;
+    margin-top: 0px;
+    font-family:'Arial', sans-serif;
+    font-weight:900;
+    height: 60px;
+    width: 60px;
+  }
 }
 @media (max-height: 710px) {
   #characterModal.active {
@@ -240,10 +248,7 @@ button.female {
     height: 100px;
     font-size: 70px;
     margin-top: 0;
-    margin-right: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
   }
   #characterModal > div > h2,
   #characterModal > div > div,
