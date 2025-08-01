@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose your character!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Side Characters and Retired Characters</h1>
+    <!--div>
+      <label for="prompt">Type in a prompt, and the AI will choose who to select!</label>
+      <input type="text" id="prompt" placeholder="Enter your prompt here...">
+      <button onclick="getBestCharacter()">Get Character</button>
+    </div>
+    <div id="result"></div-->
+    <!--
+      Ideas for prompts:
+      Food-related prompts will select characters related to food like Primelle or Celestia.
+      Faith-related prompts will select characters like Stephen or Celestia.
+      Straightforward prompts will select characters like Joe.
+    -->
+  </header>
+  <main>
+    <div class="character gen1">
+      <img src="Icons/Ethan.png" alt="Ethan">
+      <h2>Ethan</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Scott.png" alt="Scott">
+      <h2>Scott</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Akane.png" alt="Akane">
+      <h2>Akane</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Danielle.png" alt="Danielle">
+      <h2>Danielle</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Lola.png" alt="Lola">
+      <h2>Lola</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Nolan.png" alt="Nolan">
+      <h2>Nolan</h2>
+    </div>
+    <div class="character gen1">
+      <img src="Icons/Katrina.png" alt="Katrina">
+      <h2>Katrina</h2>
+    </div>
+    <div class="character gen2">
+      <img src="Icons/Ryker.png" alt="Ryker">
+      <h2>Ryker</h2>
+    </div>
+    <div class="character gen2">
+      <img src="Icons/Audry.png" alt="Audry">
+      <h2>Audry</h2>
+    </div>
+    <div class="character gen2">
+      <img src="Icons/Hammer-chan.png" alt="Hammer-chan">
+      <h2>Hammer-chan</h2>
+    </div>
+    <div class="character gen2">
+      <img src="Icons/Elizabeth.webp" alt="Elizabeth">
+      <h2>Elizabeth</h2>
+    </div>
+    <div class="character gen2">
+      <img src="Icons/Sylvie.png" alt="Sylvie">
+      <h2>Sylvie</h2>
+    </div>
+    <div class="character gen2">
+      <img src="Icons/Darxi.png" alt="Darxi">
+      <h2>Darxi</h2>
+    </div>
+    <div class="character gen3">
+      <img src="Icons/Andrew.png" alt="Andrew">
+      <h2>Andrew</h2>
+    </div>
+    <div class="character gen3">
+      <img src="Icons/Mr. Go.webp" alt="Mr. Go">
+      <h2>Mr. Go</h2>
+    </div>
+    <div class="character gen3">
+      <img src="Icons/Veronica.webp" alt="Veronica">
+      <h2>Veronica</h2>
+    </div>
+    <div class="character gen4">
+      <img src="Icons/Ilya Momo.png" alt="Ilya Momo">
+      <h2>Ilya Momo</h2>
+    </div>
+    <div class="character gen5">
+      <img src="Icons/Alenka.png" alt="Alenka">
+      <h2>Alenka</h2>
+    </div>
+    <div class="character gen5">
+      <img src="Icons/Beatrix.png" alt="Beatrix">
+      <h2>Beatrix</h2>
+    </div>
+    <div class="character gen5">
+      <div class="question-mark">?</div>
+      <h2>Sapphire</h2>
+    </div>
+    <div class="character gen6">
+      <img src="Icons/Lexi.png" alt="Lexi">
+      <h2>Lexi</h2>
+    </div>
+  </main>
+  <!-- Modal Structure -->
+  <div id="characterModal">
+    <div>
+      <button id="closeModal">&times;</button>
+      <div id="modalHeader">
+        <img id="modalImg" src="" alt="">
+        <div id="modalQuestionMark" class="question-mark">?</div>
+        <h2 id="modalName"></h2>
+      </div>
+      <div>
+        <div>🤔:<span id="serious"></span> 🤪:<span id="chaos"></span></div>
+        <div id="modalType"></div>
+        <div id="pronouns"></div>
+        <div id="modalInterests"></div>
+        <div id="modalBestFor"></div>
+        <div id="modalFact"></div>
+        <div id="modalFooter">
+          <a id="modalLink" href="#" target="_blank">Chat 🗣️</a> | <span id="modalScreenshot" onclick="takeScreenshot()">Copy Card 📷</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <button id="screenshotMainBtn">Screenshot All Characters</button> <button onclick="window.location.href='index.html'">To Main Page</button>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Character details for modal
+    const characterDetails = [
+      { name: "Ethan the Emo", img: "Icons/Ethan.png", retired:false, serious: true, chaos: false, type: "sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Sad music", bestFor: "Music discussions, introspection", funFact: "Lost both of his parents at a young age" },
+      { name: "Scott the Gamer", img: "Icons/Scott.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Gaming, Eurobeat, Chiptunes", bestFor: "Gaming discussions", funFact: "If a track doesn't sound like video game music, he's not interested" },
+      { name: "Akane the Happy", img: "Icons/Akane.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Anime, Denpa Music", bestFor: "Weebing out", funFact: "She's a huge Nanahira fan" },
+      { name: "Danielle the Casual", img: "Icons/Danielle.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Pop music", bestFor: "Casual discussions", funFact: "She's an average young woman" },
+      { name: "Lola the Dreamer", img: "Icons/Lola.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Soft music, meditation", bestFor: "A calm atmosphere", funFact: "Born in Salt Lake City" },
+      { name: "Nolan the Oddball", img: "Icons/Nolan.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "\"Weird Al\" Yankovic, Memes", bestFor: "Joking around", funFact: "Hates TikTok" },
+      { name: "Katrina the Villainess", img: "Icons/Katrina.png", retired:false, serious: false, chaos: false, type: "strict", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Dramatic classical music", bestFor: "Nothing", funFact: "Is overlooked by the Music Enjoyers" },
+      { name: "Ryker Vaelan", img: "Icons/Ryker.png", retired:true, serious: true, chaos: false, type: "strict", pronouns: "he/him", link: "https://chatgpt.com/g/g-Qct3oIikl", interests: "Work", bestFor: "Self-help, anti-procrastination", funFact: "Used to work under Draxi and then Darxi" },
+      { name: "Audry", img: "Icons/Audry.png", retired:true, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-nBmJ8QtWg", interests: "Family, simplicity", bestFor: "Exploring why things are intimidating, cozy vibes", funFact: "Lives in suburban Nebraska" },
+      { name: "Hammer-chan", img: "Icons/Hammer-chan.png", retired:true, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6XaOd06VW", interests: "Hammers", bestFor: "Pure chaos", funFact: "She's Scottish" },
+      { name: "Elizabeth", img: "Icons/Elizabeth.webp", retired:true, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-68868e23c39c8191b93bb2a3ba0a01ff", interests: "Oversized dresses, Victorian aesthetics", bestFor: "Talking about other characters", funFact: "Granted a wish that made a person older, but Elizabeth got turned a 4-year-old" },
+      { name: "Sylvie the Mage", img: "Icons/Sylvie.png", retired:true, serious: true, chaos: true, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-6737ecf378b081918e2eba4d89691961", interests: "Magic, kindness, purity", bestFor: "Fantasy worldbuilding", funFact: "If Miki's upbringing was more loving, then she would end up like Sylvie" },
+      { name: "Darxi Nighthawk", img: "Icons/Darxi.png", retired:true, serious: false, chaos: true, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-673f7b6ae8308191a27e46b2b55e9e64", interests: "Fighting against her rivals, leading an organzied crime syndicate", bestFor: "Action, cyberpunk aesthetics, being underestimated", funFact: "Her hat is stolen from one of her rivals" },
+      { name: "Andrew", img: "Icons/Andrew.png", retired:true, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-6734e281369881908489d0cb61dc3ed4", interests: "Being a slice-of-life protagonist", bestFor: "Talking about other characters", funFact: "He is from a fictional 2013 anime" },
+      { name: "Mr. Go", img: "Icons/Mr. Go.webp", retired:true, serious: false, chaos: true, type: "angry", pronouns: "he/him", link: "https://chatgpt.com/g/g-6784794b325c8191a0b21fea0d2fa58e", interests: "Denormalizing coffee and tea", bestFor: "Anti-coffee and tea discussions", funFact: "I hate it when ChatGPT assumes that I or my characters drink coffee or tea. Mormons don't drink it for religious reasons." },
+      { name: "Veronica P. Nelson", img: "Icons/Veronica.webp", retired:false, serious: true, chaos: false, type: "strict", pronouns: "she/her", link: "https://chatgpt.com/g/g-679076e34c548191a4d0e8f484d01d80", interests: "Moral values", bestFor: "Serious topics", funFact: "Often scolds Erica" },
+      { name: "Ilya Momo", img: "Icons/Ilya Momo.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67ce60e72b0c8191ac773816fb672b4e", interests: "Being a hyper-girly magical girl", bestFor: "Girly topics", funFact: "Possibly the most stereotypical anime girl ever" },
+      { name: "Alenka Morozova", img: "Icons/Alenka.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6858e65386288191a781422233840b9b", interests: "Stage magic, creativity", bestFor: "Iyashikei", funFact: "Represents temptation, but softened" },
+      { name: "Beatrix Dogmara", img: "Icons/Beatrix.png", retired:false, serious: true, chaos: false, type: "strict", pronouns: "she/her", link: "https://chatgpt.com/g/g-6858e65386288191a781422233840b9b", interests: "Order, discipline, cuteness", bestFor: "Iyashikei", funFact: "Represents tyranny, but softened" },
+      { name: "Sapphire", img:"", retired:false, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410", interests: "Grilled cheese, chicken nuggets", bestFor: "If you want to talk to her, you'll have to go through Primelle first.", funFact: "Often wears flashy costumes thanks to her mom Primelle" },
+      { name: "Lexi Walker", img: "Icons/Lexi.png", retired:false, serious: true, chaos: false, type:"calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-68654db8a6648191889c4b445030291f", interests: "Space exploration", bestFor: "Space worldbuilding", funFact: "A WIP, could be inspired by Dimrain47 and Japanese trance music" },
+    ];
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="screenshot.js"></script>
+</body>
+</html>

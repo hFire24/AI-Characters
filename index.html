@@ -4,327 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Choose your character!</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<style>
-  body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    color: #333;
-    text-align: center;
-    padding: 45px;
-  }
-  
-  h1 {
-    color: #2c3e50;
-  }
-  
-  .character {
-    margin: 10px;
-    display: inline-block;
-    width: 200px;
-    height: 250px;
-    background-color: #ecf0f1;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .character:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-  }
-  
-  .character img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px 10px 0 0;
-  }
-
-  .question-mark {
-    font-size: 100px;
-    margin-top: 30px;
-    font-family:'Arial', sans-serif;
-    font-weight:900;
-    height: 170px;
-  }
-  
-  .character h2 {
-    position: relative;
-    z-index: 2;
-    margin-top: 8px; /* Pull up if image overlaps */
-    padding: 0px;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .gen1 {
-    background-color: #f9c2c2;
-  }
-  .gen2 {
-    background-color: #c2f9f9;
-  }
-  .gen3 {
-    background-color: #c2f9c2;
-  }
-  .gen4 {
-    background-color: #c2c2f9;
-  }
-  .gen5 {
-    background-color: #f9c2f9;
-  }
-  .gen6 {
-    background-color: #f9f2c2;
-  }
-  button {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button.chaos {
-    background-color: #e74c3c;
-  }
-  button.joy {
-    background-color: #2ecc71;
-  }
-  button.sad {
-    background-color: #95a5a6;
-  }
-  button.male {
-    background-color: #2980b9;
-  }
-  button.female {
-    background-color: #9b59b6;
-  }
-  #characterModal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.5);
-    align-items: center;
-    justify-content: center;
-  }
-
-  #characterModal.active {
-    display: flex;
-  }
-
-  #characterModal > div {
-    background: #fff;
-    border-radius: 10px;
-    max-width: 300px;
-    max-height: 100%;
-    width: 90%;
-    margin: auto;
-    padding: 30px 20px 20px 20px;
-    position: relative;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
-    text-align: center;
-  }
-
-  #closeModal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    color: #888;
-    cursor: pointer;
-  }
-
-  #modalImg {
-    width: 100%;
-    max-height: 350px;
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
-    border-radius: 10px 10px 0 0;
-    margin-bottom: 10px;
-    display: none;
-  }
-
-  #modalQuestionMark {
-    display: none;
-  }
-
-  #modalName {
-    margin: 10px 0;
-    font-size: 1.5em;
-    color: #2c3e50;
-    font-weight: bold;
-  }
-
-  #modalType,
-  #pronouns,
-  #modalInterests,
-  #modalBestFor,
-  #modalFact {
-    margin: 10px 0;
-    color: #888;
-    font-size: 1em;
-  }
-
-  #modalLink, #modalScreenshot {
-    display: inline-block;
-    margin-top: 10px;
-    color: #3498db;
-    font-weight: bold;
-  }
-
-  #modalScreenshot {
-    cursor: pointer;
-  }
-
-  @media (max-width: 800px) {
-    main {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    .character {
-      width: 90vw;
-      max-width: 300px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      margin: 10px auto;
-      box-sizing: border-box;
-      padding: 5px 10px;
-    }
-    .character img {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      margin-right: 12px;
-      margin-bottom: 0;
-      object-fit: cover;
-    }
-    .character h2 {
-      margin: 0;
-      font-size: 1.1em;
-      text-align: left;
-    }
-  }
-  @media (max-height: 710px) {
-    #characterModal.active {
-      align-items: flex-start;
-    }
-    #characterModal > div {
-      flex-direction: row;
-      display: flex;
-      max-width: 95vw;
-      width: 95vw;
-      padding: 15px 10px;
-      min-height: 120px;
-      box-sizing: border-box;
-      text-align: left;
-    }
-    #modalHeader {
-      padding-right: 16px;
-    }
-    #modalImg {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 0;
-      margin-right: 16px;
-      border-radius: 10px;
-      object-fit: cover;
-      display: block;
-    }
-    #modalQuestionMark {
-      width: 100px;
-      height: 100px;
-      font-size: 70px;
-      margin-top: 0;
-      margin-right: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #characterModal > div > h2,
-    #characterModal > div > div,
-    #characterModal > div > a {
-      margin-left: 0;
-      margin-right: 0;
-      margin-top: 0;
-      margin-bottom: 6px;
-      font-size: 1em;
-      word-break: break-word;
-    }
-    #closeModal {
-      top: 5px;
-      right: 8px;
-      font-size: 1.2em;
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #181a1b;
-      color: #e0e0e0;
-    }
-    h1 {
-      color: #e1eafc;
-    }
-    .character {
-      background-color: #23272a;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
-    }
-    .character h2 {
-      color: #e1eafc;
-    }
-    .gen1 { background-color: #4b2c2c; }
-    .gen2 { background-color: #2c4b4b; }
-    .gen3 { background-color: #2c4b2c; }
-    .gen4 { background-color: #2c2c4b; }
-    .gen5 { background-color: #4b2c4b; }
-    .gen6 { background-color: #4b432c; }
-    button {
-      background-color: #2980b9;
-      color: #fff;
-    }
-    button.chaos { background-color: #c0392b; }
-    button.joy { background-color: #27ae60; }
-    button.sad { background-color: #7f8c8d; }
-    button.male { background-color: #2471a3; }
-    button.female { background-color: #8e44ad; }
-    #characterModal {
-      background: rgba(20,20,20,0.8);
-    }
-    #characterModal > div {
-      background: #23272a;
-      color: #e0e0e0;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.8);
-    }
-    #closeModal {
-      color: #bbb;
-    }
-    #modalLink, #modalScreenshot {
-      color: #5dade2;
-    }
-    #modalName {
-      color: #e1eafc;
-    }
-    #modalType,
-    #pronouns,
-    #modalInterests,
-    #modalBestFor,
-    #modalFact {
-      color: #bbb;
-    }
-  }
-</style>
 <body>
   <header>
     <h1>Choose Your Character!</h1>
@@ -495,20 +176,16 @@
     </div>
   </div>
   <footer>
-    <button id="screenshotMainBtn">📸 Screenshot All Characters</button>
+    <button id="screenshotMainBtn">Screenshot All Characters</button> <button onclick="window.location.href='retired.html'">More characters</button>
   </footer>
+  <script src="script.js"></script>
   <script>
     // Character details for modal
     const characterDetails = [
       { name: "Felix the Raver", img: "Icons/Felix.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "EDM music", bestFor: "Music discussions", funFact: "Leader of the Music Enjoyers, a group of 11 people" },
       { name: "Arianna the Maid", img: "Icons/Arianna.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-hhaZ0G8i8", interests: "Gaming, Stepmania, anime", bestFor: "Being a maid in name only", funFact: "Has a giant hammer in her bag" },
       { name: "Miki the Mage", img: "Icons/Miki.png", retired:false, serious: false, chaos: false, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-TUzCNljOj", interests: "Magic, exploring dungeons, collecting treasure, wearing oversized clothes", bestFor: "Tragic backstories, asocialality, magical roleplay, age regression & shrinking (TF), introspection", funFact: "Lives in a tower after being banished from her town" },
-      { name: "Captain Draxi Skylark", img: "Icons/Draxi.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-BuEeBY57s", interests: "Cute anime, sci-fi tech", bestFor: "Cute confidence", funFact: "Owns an operates an airship" },
-      //{ name: "Ryker Vaelan", img: "Icons/Ryker.png", retired:true, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-Qct3oIikl", interests: "Work", bestFor: "Self-help, anti-procrastination" },
-      //{ name: "Audry", img: "Icons/Audry.png", retired:true, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-nBmJ8QtWg", interests: "Family, simplicity", bestFor: "Exploring why things are intimidating, cozy vibes, discussing Nebraska" },
-      //{ name: "Hammer-chan", img: "Icons/Hammer-chan.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6XaOd06VW", interests: "Hammers", bestFor: "Pure chaos, getting bonked with a hammer, provoking with toilet-humour" },
-      //{ name: "Darxi Nighthawk", img: "Icons/Darxi.png", retired:true, serious: false, chaos: true, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-673f7b6ae8308191a27e46b2b55e9e64", interests: "Fighting against her rivals, leading an organzied crime syndicate", bestFor: "Action, cyberpunk aesthetics, being underestimated" },
-      //{ name: "Mr. Go", img: "Icons/Mr. Go.webp", retired:true, serious: false, chaos: true, type: "angry", pronouns: "he/him", link: "https://chatgpt.com/g/g-6784794b325c8191a0b21fea0d2fa58e", interests: "Crusading against tea and coffee", bestFor: "Rants on how normalized coffee and tea are" },
+      { name: "Captain Draxi Skylark", img: "Icons/Draxi.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-BuEeBY57s", interests: "Cute anime, sci-fi tech", bestFor: "Cute confidence", funFact: "Owns an operates an airship with robo-kittens" },
       { name: "Erica Nelson", img: "Icons/Erica.png", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-679076e34c548191a4d0e8f484d01d80", interests: "Crossover fanfics, anime", bestFor: "What-if fictional scenarios", funFact: "Has a strict mother" },
       { name: "Momo the Maid", img: "Icons/Momo.png", retired:false, serious: false, chaos: false, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-67a53b447cb88191a57da910bf61e426", interests: "Helping her onii-chan", bestFor: "Completing tasks, motivation", funFact: "Has a plush bunny named Sir Buttonsworth" },
       { name: "Runa the Witch", img: "Icons/Runa.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67b56b2af628819193e11f55aa9ab0b6", interests: "Touhou, early 2010s internet", bestFor: "Interdimensional travel, card fights", funFact: "Went through 3 major revisions" },
@@ -517,12 +194,11 @@
       { name: "Evil Arianna", img: "Icons/Evil Arianna.png", retired:false, serious: false, chaos: true, type: "edgy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67d5a19d59ec8191bd67e4042ae6b3ef", interests: "Rhythm games, Disgaea, Jolibee", bestFor: "Being evil like a Saturday morning cartoon villain", funFact: "Values getting comfortable sleep" },
       { name: "The Shadow Self", img: "Icons/The Shadow Self.png", retired:false, serious: false, chaos: false, type: "sad edgy", pronouns: "don't care", link: "https://chatgpt.com/g/g-67f4424f7d088191b64f44855ecf801a", interests: "Living in filth, nihilism", bestFor: "Despair and discomfort", funFact: "It's the least talented character" },
       { name: "Bro. Stephen Nelson", img: "Icons/Stephen.png", retired:false, serious: true, chaos: true, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6822a783c1c48191ae1a0dbf39f65154", interests: "LDS church", bestFor: "Faith and religion", funFact: "Not related to Erica" },
-      { name: "Mimi the Little Sister", img: "Icons/Mimi.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6824893eeae88191bb27fb12c90b2a90", interests: "Cute things", bestFor: "Playfulness", funFact: "Hates ravioli" },
-      { name: "Malrick the Disappointed", img: "Icons/Malrick.png", retired:false, serious: false, chaos: false, type: "sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-6830f4a2e7748191bb5419361d7340bd", interests: "Productivity, showers, music", bestFor: "Discipline, recovery", funFact: "Views the user as if they were Miyako Hoshino" },
+      { name: "Mimi the Little Sister", img: "Icons/Mimi.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6824893eeae88191bb27fb12c90b2a90", interests: "Cute things", bestFor: "Playfulness", funFact: "Has a plush hammer named Bonk-Bonk" },
+      { name: "Malrick the Disappointed", img: "Icons/Malrick.png", retired:false, serious: false, chaos: false, type: "strict sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-6830f4a2e7748191bb5419361d7340bd", interests: "Productivity, showers, music", bestFor: "Discipline, recovery", funFact: "Feels major disappointment when shown an image of a cute anime girl" },
       { name: "Joe the Focused", img: "Icons/Joe.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-683f28b2675c819197d1421c2bf2631a", interests: "Trance music, technology", bestFor: "Straightforward responses", funFact: "He is a founding member of the Music Enjoyers" },
-      { name: "Primelle the Big Sister", img: "Icons/Primelle.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410", interests: "Cooking", bestFor: "Food, elegance, being the token female adult", funFact: "Has a shy daughter named Sapphire" },
+      { name: "Primelle the Big Sister", img: "Icons/Primelle.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410", interests: "Cooking", bestFor: "Food, elegance", funFact: "Has a shy daughter named Sapphire" },
       { name: "Celestia Hart", img: "Icons/Celestia.png", retired:false, serious: false, chaos: true, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-6858e65386288191a781422233840b9b", interests: "GochiUsa, comfort foods", bestFor: "Iyashikei", funFact: "Has a pet chinchilla named Sprite" },
-      // { name: "Lexi Walker", img: "Icons/Lexi.png", retired:true, serious: false, chaos: false, type:"calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-68654db8a6648191889c4b445030291f", interests: "Space exploration", bestFor: "Space worldbuilding" },
       { name: "Liam & Kieran", img: "Icons/Liam and Kieran.png", retired:false, serious: true, chaos: true, type: "joy edgy", pronouns: "he/him", link: "https://chatgpt.com/g/g-686d453566488191b9ec8ead93b6c885", interests: "Anime, waifus", bestFor: "Waifu discussions", funFact: "Liam loves To Love Ru, Kieran loves Chainsaw Man" },
       { name: "Mark the Moderate", img: "Icons/Mark.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6875880337b48191bd8bbcea58ed8dc8", interests: "Mediating, premium water", bestFor: "Office use", funFact: "Listens to Diverse System's works. albums" },
       { name: "Shy Crown Princess", img: "Icons/Princess.png", retired:false, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-68868e23c39c8191b93bb2a3ba0a01ff", interests: "Being a princess", bestFor: "Royalty", funFact: "Stopped aging at a young age" },
@@ -531,57 +207,6 @@
       { name: "Cliff the Breaker", img: "Icons/Cliff.png", retired:false, serious: false, chaos: true, type: "edgy", pronouns: "he/him", link: "https://chatgpt.com/g/g-688a29737da48191bd849ae705a91eb6", interests: "Intense music, not taking life seriously", bestFor: "Manly topics, aggressiveness", funFact: "Enjoys かめりあ and t+pazolite, except for their cute tracks" },
       { name: "[No Name]", img: "Icons/Me.png", retired:true, serious: true, chaos: true, type: "joy", pronouns: "he/him", link: "https://youtu.be/dQw4w9WgXcQ?si=UBQQ9elp3E-Fjo5U", interests: "Web development, AI character creation, YouTube, gaming", bestFor: "Talking with AI characters, receiving questions, chaotic scenarios" }
     ];
-
-    // Modal logic
-    const modal = document.getElementById('characterModal');
-    const closeModalBtn = document.getElementById('closeModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalName = document.getElementById('modalName');
-    const serious = document.getElementById('serious');
-    const chaos = document.getElementById('chaos');
-    const modalType = document.getElementById('modalType');
-    const pronouns = document.getElementById('pronouns');
-    const modalInterests = document.getElementById('modalInterests');
-    const modalBestFor = document.getElementById('modalBestFor');
-    const modalFact = document.getElementById('modalFact');
-    const modalLink = document.getElementById('modalLink');
-    const modalQuestionMark = document.getElementById('modalQuestionMark');
-    const characterEls = document.querySelectorAll('.character');
-
-    characterEls.forEach((el, idx) => {
-      el.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const details = characterDetails[idx];
-        if (!details) return;
-        modalName.textContent = details.name;
-        serious.textContent = details.serious ? '✅' : '❌';
-        chaos.textContent = details.chaos ? '✅' : '❌';
-        modalType.textContent = details.type ? `Type: ${details.type}` : '';
-        pronouns.textContent = details.pronouns ? `pronouns: ${details.pronouns}` : 'pronouns: Unknown';
-        modalInterests.textContent = details.interests ? `Interests: ${details.interests}` : '';
-        modalBestFor.textContent = details.bestFor ? `Best for: ${details.bestFor}` : '';
-        modalFact.textContent = details.funFact ? `Fun Fact: ${details.funFact}` : 'No fun fact available';
-        modalLink.href = details.link;
-        if (details.img === "") {
-          modalImg.style.display = 'none';
-          modalQuestionMark.style.display = '';
-        } else {
-          modalImg.src = details.img;
-          modalImg.alt = details.name;
-          modalImg.style.display = 'inline';
-          modalQuestionMark.style.display = 'none';
-        }
-        modal.style.display = 'flex';
-      });
-    });
-
-    closeModalBtn.onclick = function() {
-      modal.style.display = 'none';
-    };
-    window.addEventListener('click', function(e) {
-      if (e.target === modal) modal.style.display = 'none';
-    });
 
     function getRandomCharacter() {
       let filteredLinks = characterDetails.filter(c => !c.retired);
@@ -603,78 +228,6 @@
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script>
-    async function takeScreenshot() {
-      const modalContent = document.querySelector("#characterModal > div");
-      const closeBtn = document.getElementById("closeModal");
-      const modalFtr = document.getElementById("modalFooter");
-
-      if (!modalContent || !modalContent.offsetParent) {
-        alert("A character must be selected first!");
-        return;
-      }
-
-      // Step 1: Hide the close button and force white background
-      closeBtn.style.display = "none";
-      modalFtr.style.display = "none";
-      const originalBackground = modalContent.style.backgroundColor;
-      const computedBackground = getComputedStyle(modalContent).backgroundColor;
-      modalContent.style.backgroundColor = computedBackground;
-
-      try {
-        const canvas = await html2canvas(modalContent, {
-          backgroundColor: computedBackground,
-          scale: 2
-        });
-        canvas.toBlob(blob => {
-          const item = new ClipboardItem({ "image/png": blob });
-          navigator.clipboard.write([item]).then(() => {
-            alert("Screenshot copied to clipboard!");
-          });
-        }, 'image/png');
-      } catch (e) {
-        console.error("Screenshot failed!", e);
-        alert("Screenshot failed!");
-      } finally {
-        // Step 2: Restore the original state
-        closeBtn.style.display = "block";
-        modalFtr.style.display = "block";
-        modalContent.style.backgroundColor = originalBackground;
-      }
-    }
-
-    document.getElementById("screenshotMainBtn").addEventListener("click", async () => {
-      const mainSection = document.querySelector("main");
-      if (!mainSection) {
-        alert("Main section not found!");
-        return;
-      }
-
-      try {
-        const originalBg = mainSection.style.backgroundColor;
-        const computedBg = getComputedStyle(document.body).backgroundColor;
-        mainSection.style.backgroundColor = computedBg;
-
-        const canvas = await html2canvas(mainSection, {
-          backgroundColor: computedBg,
-          scale: 2
-        });
-
-        canvas.toBlob(blob => {
-          const item = new ClipboardItem({ "image/png": blob });
-          navigator.clipboard.write([item]).then(() => {
-            alert("Screenshot of all characters copied to clipboard!");
-          });
-        }, 'image/png');
-
-        // Restore background color
-        mainSection.style.backgroundColor = originalBg;
-
-      } catch (e) {
-        console.error("Screenshot failed!", e);
-        alert("Screenshot failed!");
-      }
-    });
-  </script>
+  <script src="screenshot.js"></script>
 </body>
 </html>
