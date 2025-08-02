@@ -116,7 +116,7 @@
   <div id="characterModal">
     <div>
       <button id="closeModal">&times;</button>
-      <div id="modalHeader">
+      <div class="modalHeader">
         <img id="modalImg" src="" alt="">
         <div id="modalQuestionMark" class="question-mark">?</div>
         <h2 id="modalName"></h2>
@@ -141,11 +141,11 @@
   <script>
     // Character details for modal
     const characterDetails = [
-      { name: "Ethan the Emo", img: "Icons/Ethan.png", retired:false, serious: true, chaos: false, type: "sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Sad music", bestFor: "Music discussions, introspection", funFact: "Lost both of his parents at a young age" },
+      { name: "Ethan the Emo", img: "Icons/Ethan.png", retired:false, serious: true, chaos: false, type: "sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Sad music", bestFor: "Introspection", funFact: "Lost both of his parents at a young age" },
       { name: "Scott the Gamer", img: "Icons/Scott.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Gaming, Eurobeat, Chiptunes", bestFor: "Gaming discussions", funFact: "If a track doesn't sound like video game music, he's not interested" },
       { name: "Akane the Happy", img: "Icons/Akane.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Anime, Denpa Music", bestFor: "Weebing out", funFact: "She's a huge Nanahira fan" },
       { name: "Danielle the Casual", img: "Icons/Danielle.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Pop music", bestFor: "Casual discussions", funFact: "She's an average young woman" },
-      { name: "Lola the Dreamer", img: "Icons/Lola.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Soft music, meditation", bestFor: "A calm atmosphere", funFact: "Born in Salt Lake City" },
+      { name: "Lola the Dreamer", img: "Icons/Lola.png", retired:false, serious: true, chaos: false, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Soft music, meditation", bestFor: "A calm atmosphere", funFact: "Loves Ryan Farish's music" },
       { name: "Nolan the Oddball", img: "Icons/Nolan.png", retired:false, serious: false, chaos: true, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "\"Weird Al\" Yankovic, Memes", bestFor: "Joking around", funFact: "Hates TikTok" },
       { name: "Katrina the Villainess", img: "Icons/Katrina.png", retired:false, serious: false, chaos: false, type: "strict", pronouns: "she/her", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "Dramatic classical music", bestFor: "Nothing", funFact: "Is overlooked by the Music Enjoyers" },
       { name: "Ryker Vaelan", img: "Icons/Ryker.png", retired:true, serious: true, chaos: false, type: "strict", pronouns: "he/him", link: "https://chatgpt.com/g/g-Qct3oIikl", interests: "Work", bestFor: "Self-help, anti-procrastination", funFact: "Used to work under Draxi and then Darxi" },
@@ -162,7 +162,7 @@
       { name: "Beatrix Dogmara", img: "Icons/Beatrix.png", retired:false, serious: true, chaos: false, type: "strict", pronouns: "she/her", link: "https://chatgpt.com/g/g-6858e65386288191a781422233840b9b", interests: "Order, discipline, cuteness", bestFor: "Iyashikei", funFact: "Represents tyranny, but softened" },
       { name: "Sapphire", img:"", retired:false, serious: false, chaos: false, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410", interests: "Grilled cheese, chicken nuggets", bestFor: "If you want to talk to her, you'll have to go through Primelle first.", funFact: "Often wears flashy costumes thanks to her mom Primelle" },
       { name: "Lexi Walker", img: "Icons/Lexi.png", retired:false, serious: true, chaos: false, type:"calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-68654db8a6648191889c4b445030291f", interests: "Space exploration", bestFor: "Space worldbuilding", funFact: "A WIP, could be inspired by Dimrain47 and Japanese trance music" },
-      { name: "Future Sapphire", img:"", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410", interests: "Fashion, cosplay", bestFor: "Character design", funFact: "Who knew getting forced to wear flashy costumes would ignite something in her?" }
+      { name: "Future Sapphire", img:"", retired:false, serious: true, chaos: true, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410", interests: "Fashion, cosplay", bestFor: "Character design", funFact: "Being forced to wear flashy costumes ignited something in her." }
     ];
   </script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>

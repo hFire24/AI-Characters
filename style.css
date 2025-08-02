@@ -101,7 +101,7 @@ button.moe0 {
 button.moe {
   background-color: pink;
 }
-#characterModal {
+#characterModal, #moodModal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -114,14 +114,13 @@ button.moe {
   justify-content: center;
 }
 
-#characterModal.active {
+#characterModal.active, #moodModal.active {
   display: flex;
 }
 
-#characterModal > div {
+#characterModal > div, #moodModal > div {
   background: #fff;
   border-radius: 10px;
-  max-width: 300px;
   max-height: 100%;
   width: 90%;
   margin: auto;
@@ -131,7 +130,15 @@ button.moe {
   text-align: center;
 }
 
-#closeModal {
+#characterModal > div {
+  max-width: 300px;
+}
+
+#moodModal > div {
+  max-width: 400px;
+}
+
+#closeModal, #closeMoodModal {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -156,7 +163,7 @@ button.moe {
   display: none;
 }
 
-#modalName {
+#modalName, #moodName{
   margin: 10px 0;
   font-size: 1.5em;
   color: #2c3e50;
@@ -167,20 +174,32 @@ button.moe {
 #pronouns,
 #modalInterests,
 #modalBestFor,
-#modalFact {
+#modalFact,
+#moodDescription,
+#characterList {
   margin: 10px 0;
   color: #888;
   font-size: 1em;
 }
 
-#modalLink, #modalScreenshot {
+#characterList {
+  text-align: left;
+}
+
+#characterList > div {
+  display: grid;
+  grid-template-columns: 40px auto 57px 40px;
+  align-items: center;
+}
+
+#modalLink, #modalScreenshot, #moodScreenshot, #randomLink {
   display: inline-block;
   margin-top: 10px;
   color: #3498db;
   font-weight: bold;
 }
 
-#modalScreenshot {
+#modalScreenshot, #moodScreenshot, #randomLink {
   cursor: pointer;
 }
 
@@ -224,21 +243,30 @@ button.moe {
   }
 }
 @media (max-height: 710px) {
-  #characterModal.active {
+  #characterModal.active, #moodModal.active {
     align-items: flex-start;
   }
-  #characterModal > div {
-    flex-direction: row;
+  #characterModal > div, #moodModal > div {
     display: flex;
     max-width: 95vw;
     width: 95vw;
     padding: 15px 10px;
     min-height: 120px;
     box-sizing: border-box;
+  }
+  #characterModal > div {
+    flex-direction: row;
     text-align: left;
   }
-  #modalHeader {
+  #moodModal > div {
+    flex-direction: column;
+    align-items: center;
+  }
+  #characterModal > div > .modalHeader {
     padding-right: 16px;
+  }
+  #moodModal > div > .modalHeader {
+    margin-bottom: 0;
   }
   #modalImg {
     width: 100px;
@@ -258,7 +286,9 @@ button.moe {
   }
   #characterModal > div > h2,
   #characterModal > div > div,
-  #characterModal > div > a {
+  #characterModal > div > a,
+  #moodModal > div > h2,
+  #moodModal > div > div {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -266,7 +296,18 @@ button.moe {
     font-size: 1em;
     word-break: break-word;
   }
-  #closeModal {
+  #characterList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+  }
+  #characterList > div {
+    display: grid;
+    grid-template-columns: 40px auto 57px 45px;
+    align-items: center;
+    grid-auto-flow: row;
+  }
+  #closeModal, #closeMoodModal {
     top: 5px;
     right: 8px;
     font-size: 1.2em;
@@ -302,28 +343,30 @@ button.moe {
   button.sad { background-color: #7f8c8d; }
   button.male { background-color: #2471a3; }
   button.female { background-color: #8e44ad; }
-  #characterModal {
+  #characterModal, #moodModal {
     background: rgba(20,20,20,0.8);
   }
-  #characterModal > div {
+  #characterModal > div, #moodModal > div {
     background: #23272a;
     color: #e0e0e0;
     box-shadow: 0 4px 24px rgba(0,0,0,0.8);
   }
-  #closeModal {
+  #closeModal, #closeMoodModal {
     color: #bbb;
   }
-  #modalLink, #modalScreenshot {
+  #modalLink, #modalScreenshot, #moodScreenshot, #randomLink {
     color: #5dade2;
   }
-  #modalName {
+  #modalName, #moodName {
     color: #e1eafc;
   }
   #modalType,
   #pronouns,
   #modalInterests,
   #modalBestFor,
-  #modalFact {
+  #modalFact,
+  #moodDescription,
+  #characterList {
     color: #bbb;
   }
 }

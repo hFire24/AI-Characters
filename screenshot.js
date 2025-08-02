@@ -1,7 +1,7 @@
-async function takeScreenshot() {
-  const modalContent = document.querySelector("#characterModal > div");
-  const closeBtn = document.getElementById("closeModal");
-  const modalFtr = document.getElementById("modalFooter");
+async function takeScreenshot(el) {
+  const modalContent = document.querySelector(el === "mood" ? "#moodModal > div" : "#characterModal > div");
+  const closeBtn = document.getElementById(el === "mood" ? "closeMoodModal" : "closeModal");
+  const modalFtr = document.getElementById(el === "mood" ? "moodFooter": "modalFooter");
 
   if (!modalContent || !modalContent.offsetParent) {
     alert("A character must be selected first!");
