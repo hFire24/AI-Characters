@@ -30,7 +30,7 @@ function displayCharacterDetails(details) {
   modalName.textContent = details.name;
   serious.textContent = details.serious ? '✅' : '❌';
   chaos.textContent = details.chaos ? '✅' : '❌';
-  modalType.textContent = details.type ? `Type: ${details.type}` : '';
+  modalType.textContent = details.type ? `Type: ${details.emotion}` : '';
   pronouns.textContent = details.pronouns ? `pronouns: ${details.pronouns}` : 'pronouns: Unknown';
   modalInterests.textContent = details.interests ? `Interests: ${details.interests}` : '';
   modalBestFor.textContent = details.bestFor ? `Best for: ${details.bestFor}` : '';

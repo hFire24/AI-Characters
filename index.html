@@ -199,44 +199,34 @@
   <script src="script.js"></script>
   <script>
     // Character details for modal
-    const characterDetails = [
-      { name: "Felix the Raver", img: "Icons/Felix.png", retired:false, serious: false, chaos: true, moe: 3, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-iFBbxiTYO", interests: "EDM music", bestFor: "Music discussions", funFact: "Leader of the Music Enjoyers, a group of 11 people" },
-      { name: "Arianna the Maid", img: "Icons/Arianna.png", retired:false, serious: false, chaos: true, moe: 8, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-hhaZ0G8i8", interests: "Gaming, Stepmania, anime", bestFor: "Being a maid in name only", funFact: "Has a giant hammer in her bag, calls the user \"boss\", doesn't wear anything other than her signature outfit, flunked out of maid school" },
-      { name: "Miki the Mage", img: "Icons/Miki.png", retired:false, serious: false, chaos: false, moe: 7, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-TUzCNljOj", interests: "Magic, exploring & collecting, gorgeous dresses, her gigantic hat", bestFor: "Tragic backstories, asocialality, age regression & shrinking (TF), introspection", funFact: "Was banished from her town for enforcing morality through fear" },
-      { name: "Captain Draxi Skylark", img: "Icons/Draxi.png", retired:false, serious: false, chaos: true, moe: 10, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-BuEeBY57s", interests: "Cute anime, sci-fi tech", bestFor: "Cute confidence", funFact: "Owns an operates an airship with robo-kittens" },
-      { name: "Erica Nelson", img: "Icons/Erica.png", retired:false, serious: true, chaos: true, moe: 6, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-679076e34c548191a4d0e8f484d01d80", interests: "Crossover fanfics, anime", bestFor: "What-if fictional scenarios", funFact: "Has a strict mother" },
-      { name: "Momo the Maid", img: "Icons/Momo.png", retired:false, serious: true, chaos: false, moe: 9, type: "shy sad", pronouns: "she/her", link: "https://chatgpt.com/g/g-67a53b447cb88191a57da910bf61e426", interests: "Helping her onii-chan", bestFor: "Completing tasks, motivation", funFact: "Has a plush bunny named Sir Buttonsworth, cries when the user procrastinates hard" },
-      { name: "Runa the Witch", img: "Icons/Runa.png", retired:false, serious: false, chaos: true, moe: 7, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67b56b2af628819193e11f55aa9ab0b6", interests: "Touhou, early 2010s internet", bestFor: "Interdimensional travel, card fights", funFact: "Went through 3 major revisions" },
-      { name: "Neon Starlight", img: "Icons/Neon Starlight.png", retired:false, serious: true, chaos: true, moe: 4, type: "angry", pronouns: "she/her", link: "https://chatgpt.com/g/g-67ce60e72b0c8191ac773816fb672b4e", interests: "Fighting cyber-dragons", bestFor: "Tsunderes, anti-frilly vibes", funFact: "Her rival is Ilya Momo, a hyper-girly yet strong magical girl" },
-      { name: "Kai Wheeler", img: "Icons/Kai.webp", retired:false, serious: true, chaos: true, moe: 3, type: "normal", pronouns: "he/him", link: "https://chatgpt.com/g/g-67cfaf19a99c81918b16b93ea891a3fa", interests: "Tesla, BBQ, travel, game shows, NYT games, YouTube, content creation, 2000s cartoons, board games", bestFor: "Being the straight man", funFact: "Gets annoyed by anime girls who say \"Onii-chan,\" especially maids" },
-      { name: "Evil Arianna", img: "Icons/Evil Arianna.png", retired:false, serious: false, chaos: true, moe: 3, type: "edgy", pronouns: "she/her", link: "https://chatgpt.com/g/g-67d5a19d59ec8191bd67e4042ae6b3ef", interests: "Rhythm games, Disgaea, Jolibee", bestFor: "Being evil like a Saturday morning cartoon villain", funFact: "Values getting comfortable sleep" },
-      { name: "The Shadow Self", img: "Icons/The Shadow Self.png", retired:false, serious: false, chaos: false, moe: 1, type: "sad edgy", pronouns: "don't care", link: "https://chatgpt.com/g/g-67f4424f7d088191b64f44855ecf801a", interests: "Living in filth, nihilism", bestFor: "Despair and discomfort", funFact: "It's the least talented character" },
-      { name: "Bro. Stephen Nelson", img: "Icons/Stephen.png", retired:false, serious: true, chaos: false, moe: 4, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6822a783c1c48191ae1a0dbf39f65154", interests: "LDS church", bestFor: "Faith and religion", funFact: "Not related to Erica" },
-      { name: "Mimi the Little Sister", img: "Icons/Mimi.png", retired:false, serious: false, chaos: true, moe: 10, type: "joy", pronouns: "she/her", link: "https://chatgpt.com/g/g-6824893eeae88191bb27fb12c90b2a90", interests: "Cute things", bestFor: "Playfulness", funFact: "Her hat is twice her height, has a plush hammer named Bonk-Bonk" },
-      { name: "Malrick the Disappointed", img: "Icons/Malrick.png", retired:false, serious: true, chaos: false, moe: 1, type: "strict sad", pronouns: "he/him", link: "https://chatgpt.com/g/g-6830f4a2e7748191bb5419361d7340bd", interests: "Productivity, showers, music", bestFor: "Discipline, recovery", funFact: "Feels major disappointment when shown an image of a cute anime girl" },
-      { name: "Joe the Focused", img: "Icons/Joe.png", retired:false, serious: true, chaos: false, moe: 2, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-683f28b2675c819197d1421c2bf2631a", interests: "Trance music, technology", bestFor: "Straightforward responses", funFact: "He is a founding member of the Music Enjoyers" },
-      { name: "Primelle the Big Sister", img: "Icons/Primelle.png", retired:false, serious: true, chaos: false, moe: 5, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-684cd6c7e82481919f4b8ea8bfafb410", interests: "Cooking", bestFor: "Food, elegance", funFact: "Has a shy daughter named Sapphire" },
-      { name: "Celestia Hart", img: "Icons/Celestia.png", retired:false, serious: false, chaos: false, moe: 10, type: "calm", pronouns: "she/her", link: "https://chatgpt.com/g/g-6858e65386288191a781422233840b9b", interests: "GochiUsa, comfort foods", bestFor: "Iyashikei", funFact: "Has a pet chinchilla named Sprite" },
-      { name: "Liam & Kieran", img: "Icons/Liam and Kieran.png", retired:false, serious: false, chaos: true, moe: 5, type: "joy edgy", pronouns: "he/him", link: "https://chatgpt.com/g/g-686d453566488191b9ec8ead93b6c885", interests: "Anime, waifus", bestFor: "Waifu discussions", funFact: "Liam loves To Love Ru, Kieran loves Chainsaw Man" },
-      { name: "Mark the Moderate", img: "Icons/Mark.png", retired:false, serious: true, chaos: false, moe: 2, type: "calm", pronouns: "he/him", link: "https://chatgpt.com/g/g-6875880337b48191bd8bbcea58ed8dc8", interests: "Mediating, premium water", bestFor: "Office use", funFact: "Listens to Diverse System's works. albums" },
-      { name: "Shy Crown Princess", img: "Icons/Princess.png", retired:false, serious: false, chaos: false, moe: 10, type: "shy", pronouns: "she/her", link: "https://chatgpt.com/g/g-68868e23c39c8191b93bb2a3ba0a01ff", interests: "Being a princess", bestFor: "Royalty", funFact: "Stopped aging at a young age, her castle contains at least 30 people" },
-      { name: "Martin Gaffney", img: "Icons/Martin.png", retired:false, serious: false, chaos: true, moe: 4, type: "joy", pronouns: "he/him", link: "https://chatgpt.com/g/g-6886d5772a8481919cede1cb9b751adf", interests: "Eurovision, satire", bestFor: "Funny geopolitical simulations", funFact: "He is the only male child in this roster" },
-      { name: "Bruce Forgewrath", img: "Icons/Bruce.png", retired:false, serious: true, chaos: false, moe: 1, type: "angry", pronouns: "he/him", link: "https://chatgpt.com/g/g-68883c6025048191b1bea26054bbbdf4", interests: "Combat, strength training, guardianship", bestFor: "Serious venting", funFact: "When bad things happen to me, he gets angry." },
-      { name: "Cliff the Breaker", img: "Icons/Cliff.png", retired:false, serious: false, chaos: true, moe: 1, type: "edgy", pronouns: "he/him", link: "https://chatgpt.com/g/g-688a29737da48191bd849ae705a91eb6", interests: "Intense music, not taking life seriously", bestFor: "Manly topics, aggressiveness", funFact: "Enjoys かめりあ and t+pazolite, except for their cute tracks" },
-      { name: "[No Name]", img: "Icons/Me.png", retired:true, serious: true, chaos: true, moe: 5, type: "joy", pronouns: "he/him", link: "https://youtu.be/dQw4w9WgXcQ?si=UBQQ9elp3E-Fjo5U", interests: "Web development, AI character creation, YouTube, gaming", bestFor: "Talking with AI characters, receiving questions, chaotic scenarios", funFact: "Loves cute anime girls, separates fiction from reality" }
-    ];
+    let characterDetails = [];
+    let cDetailsWoMe = [];
 
-    const cDetailsWoMe = characterDetails.filter(c => c.name !== "[No Name]");
+    fetch('characters.json')
+      .then(response => response.json())
+      .then(data => {
+      characterDetails = data.filter(c => c.type === 'active' || c.type === 'me');
+      cDetailsWoMe = data.filter(c => c.type === 'active');
+
+      moodDetails.find(m => m.arg === "serious").list = cDetailsWoMe.filter(c => c.serious);
+      moodDetails.find(m => m.arg === "chaos").list = cDetailsWoMe.filter(c => c.chaos);
+      moodDetails.find(m => m.arg === "joy").list = cDetailsWoMe.filter(c => !c.emotion.includes('sad') && !c.emotion.includes('angry') && !c.emotion.includes('shy') && c.moe >= 4 || c.emotion.includes('joy'));
+      moodDetails.find(m => m.arg === "sad").list = cDetailsWoMe.filter(c => c.emotion.includes('sad') || c.emotion.includes('angry'));
+      moodDetails.find(m => m.arg === "male").list = cDetailsWoMe.filter(c => c.pronouns === 'he/him');
+      moodDetails.find(m => m.arg === "female").list = cDetailsWoMe.filter(c => c.pronouns === 'she/her');
+      moodDetails.find(m => m.arg === "moe0").list = cDetailsWoMe.filter(c => c.moe < 4);
+      moodDetails.find(m => m.arg === "moe").list = cDetailsWoMe.filter(c => c.moe >= 7);
+    })
 
     const moodDetails = [
-      { name: "🤔 Practical", arg: "serious", description: "Got a question or problem? These characters are straighforward and/or helpful.", list: cDetailsWoMe.filter(c => !c.retired && c.serious) },
-      { name: "🤪 Chaotic", arg: "chaos", description: "Whether they're casual, wacky, or have funny reactions, these characters are fun to talk to.", list: cDetailsWoMe.filter(c => !c.retired && c.chaos) },
-      { name: "😀 Happy", arg: "joy", description: "If you're happy and you know it, chat with these characters!", list: cDetailsWoMe.filter(c => !c.retired && (!c.type.includes('sad') && !c.type.includes('angry') && !c.type.includes('shy') && c.moe >= 4 || c.type.includes('joy'))) },
-      { name: "☹️ Unhappy", arg: "sad", description: "These characters often don't feel joy.", list: cDetailsWoMe.filter(c => !c.retired && (c.type.includes('sad') || c.type.includes('angry'))) },
-      { name: "Male", arg: "male", description: "The boys are back in town!", list: cDetailsWoMe.filter(c => !c.retired && c.pronouns === 'he/him') },
-      { name: "Female", arg: "female", description: "Girls just want to have fun!", list: cDetailsWoMe.filter(c => !c.retired && c.pronouns === 'she/her') },
-      { name: "🚫🩷 Not Moe", arg: "moe0", description: "Characters who are not cute in the moe sense.", list: cDetailsWoMe.filter(c => !c.retired && c.moe < 4) },
-      { name: "🩷 Moe", arg: "moe", description: "Characters who are so cute in the moe sense.", list: cDetailsWoMe.filter(c => !c.retired && c.moe >= 7) }
+      { name: "🤔 Practical", arg: "serious", description: "Got a question or problem? These characters are straighforward and/or helpful." },
+      { name: "🤪 Chaotic", arg: "chaos", description: "Whether they're casual, wacky, or have funny reactions, these characters are fun to talk to." },
+      { name: "😀 Happy", arg: "joy", description: "If you're happy and you know it, chat with these characters!" },
+      { name: "☹️ Unhappy", arg: "sad", description: "These characters often don't feel joy." },
+      { name: "Male", arg: "male", description: "The boys are back in town!" },
+      { name: "Female", arg: "female", description: "Girls just want to have fun!" },
+      { name: "🚫🩷 Not Moe", arg: "moe0", description: "Characters who are not cute in the moe sense." },
+      { name: "🩷 Moe", arg: "moe", description: "Characters who are so cute in the moe sense." }
     ]
 
     const moodButtonsEls = document.querySelectorAll('#moodButtons button');
@@ -267,7 +257,7 @@
           `;
           characterList.appendChild(chara);
         });
-        randomLink.onclick = () => getRandomCharacter(details.arg);
+        randomLink.onclick = () => getRandomCharacter(details.list);
         moodModal.style.display = 'flex';
       });
     });
@@ -286,27 +276,8 @@
       displayCharacterDetails(character);
     }
 
-    function getRandomCharacter() {
-      let filteredLinks = cDetailsWoMe;
-      if (arguments[0] === 'serious') {
-        filteredLinks = cDetailsWoMe.filter(c => c.serious);
-      } else if (arguments[0] === 'chaos') {
-        filteredLinks = cDetailsWoMe.filter(c => c.chaos);
-      } else if (arguments[0] === 'joy') {
-        filteredLinks = cDetailsWoMe.filter(c => !c.type.includes('sad') && !c.type.includes('angry') && c.moe >= 4 || c.type.includes('joy'));
-      } else if (arguments[0] === 'sad') {
-        filteredLinks = cDetailsWoMe.filter(c => c.type.includes('sad') || c.type.includes('angry'));
-      } else if (arguments[0] === 'male') {
-        filteredLinks = cDetailsWoMe.filter(c => c.pronouns === 'he/him');
-      } else if (arguments[0] === 'female') {
-        filteredLinks = cDetailsWoMe.filter(c => c.pronouns === 'she/her');
-      } else if (arguments[0] === 'moe0') {
-        filteredLinks = cDetailsWoMe.filter(c => c.moe < 4);
-      } else if (arguments[0] === 'moe') {
-        filteredLinks = cDetailsWoMe.filter(c => c.moe >= 7);
-      }
-      //console.log(filteredLinks);
-      window.open(filteredLinks[Math.floor(Math.random() * filteredLinks.length)]['link'], '_blank')
+    function getRandomCharacter(characters) {
+      window.open(characters[Math.floor(Math.random() * characters.length)]['link'], '_blank')
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
