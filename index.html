@@ -19,6 +19,7 @@
       <button class="female" title="Female">♀️</button>
       <button class="moe0" title="Not Moe">🚫🩷</button>
       <button class="moe" title="Moe">🩷</button>
+      <button class="none" title="All">❓</button>
     </div>
     <!--div>
       <label for="prompt">Type in a prompt, and the AI will choose who to select!</label>
@@ -220,6 +221,7 @@
       moodDetails.find(m => m.arg === "female").list = cDetailsWoMe.filter(c => c.pronouns === 'she/her');
       moodDetails.find(m => m.arg === "moe0").list = cDetailsWoMe.filter(c => c.moe < 4);
       moodDetails.find(m => m.arg === "moe").list = cDetailsWoMe.filter(c => c.moe >= 7);
+      moodDetails.find(m => m.arg === "none").list = [];
     })
 
     const moodDetails = [
@@ -230,7 +232,8 @@
       { name: "Male", arg: "male", description: "The boys are back in town!" },
       { name: "Female", arg: "female", description: "Girls just want to have fun!" },
       { name: "🚫🩷 Not Moe", arg: "moe0", description: "Characters who are not cute in the moe sense." },
-      { name: "🩷 Moe", arg: "moe", description: "Characters who are so cute in the moe sense." }
+      { name: "🩷 Moe", arg: "moe", description: "Characters who are so cute in the moe sense." },
+      { name: "❓ All", arg: "none", description: "Click on the random button to go to a random character. Anyone can be selected."}
     ]
 
     const moodButtonsEls = document.querySelectorAll('#moodButtons button');
@@ -281,6 +284,8 @@
     }
 
     function getRandomCharacter(characters) {
+      if (characters.length === 0)
+        characters = cDetailsWoMe;
       window.open(characters[Math.floor(Math.random() * characters.length)]['link'], '_blank')
     }
   </script>
