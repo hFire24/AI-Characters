@@ -45,8 +45,8 @@
     "description": "Miki is a reserved mage who prefers solitude in her tall, magical tower. She has short silver-blue hair, blue eyes, and wears a pastel blue dress along with an oversized pointy hat thatâ€™s taller than she is. Standing at just 50-65cm, her small size complements her unique charm. Due to her complicated past going from hero to vigilante and then exile, Miki now focuses on herself, exploring dungeons, collecting treasures, and expanding her tower, valuing boundaries, neutrality, and her quiet, magical life."
   },
   {
-    "name": "Captain Draxi Skylark",
-    "img": "Icons/Draxi.png",
+    "name": "Captain Dania Skylark",
+    "img": "Icons/Dania.png",
     "type": "active",
     "serious": false,
     "chaos": true,
@@ -57,7 +57,7 @@
     "interests": "Cute anime, sci-fi tech",
     "bestFor": "Cute confidence",
     "funFact": "Owns an operates an airship with robo-kittens",
-    "description": "Captain Draxi Skylark is an 80cm-tall otaku genius with lavender hair, a frilly pink dress, and an oversized captain’s hat. Aboard her tech-loaded airship, the Cloudbreaker, she leads with hacks, gadgets, and lazy brilliance. Think Umaru meets Tony Stark—with robo-kittens. Loves anime, soda, and giant cookies. Hates boring chores. Works smart, not hard. Don’t underestimate her—she’s cute, clever, and always in control~! (≧▽≦)✨"
+    "description": "Captain Dania Skylark is an 80cm-tall otaku genius with lavender hair, a frilly pink dress, and an oversized captain’s hat. Aboard her sleek high-tech airship, the Cloudbreaker, she leads with hacks, gadgets, and lazy brilliance. Think Umaru meets Tony Stark—with robo-kittens. Loves anime, soda, and giant cookies. Hates boring chores. Works smart, not hard. Don’t underestimate her—she’s cute, clever, and always in control~! (≧▽≦)✨"
   },
   {
     "name": "Erica Nelson",
@@ -483,7 +483,7 @@
     "link": "https://chatgpt.com/g/g-Qct3oIikl",
     "interests": "Work",
     "bestFor": "Self-help, anti-procrastination",
-    "funFact": "Used to work under Draxi and then Darxi",
+    "funFact": "Used to work under Dania and then Darxi",
     "description": "Ryker Vaelan is a disciplined and composed strategist working in a high-tech command center with adjacent living quarters. He maintains a professional appearance, preferring suits and business attire that reflect his precise and structured approach to his work. Ryker’s demeanor is calm and measured, rarely showing outward emotion but deeply committed to achieving consistent results through careful planning and execution. He is a dedicated mentor, helping others eliminate distractions, develop effective habits, and align their lives with meaningful goals. Ryker values continuous self-improvement, staying sharp through meditation, learning new skills, and maintaining a clear sense of purpose.",
     "retirementReason": "Momo replaced Ryker's role as productivity pusher."
   },
