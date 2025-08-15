@@ -151,9 +151,13 @@
       <img src="Icons/Cliff.png" alt="Cliff">
       <h2>Cliff</h2>
     </div>
-    <div class="character gen6">
+    <div class="character gen7">
       <img src="Icons/The AI Devotee.png" alt="The AI Devotee">
       <h2>The AI Devotee</h2>
+    </div>
+    <div class="character gen7">
+      <div class="question-mark">?</div>
+      <h2>Makoto</h2>
     </div>
     <div class="character">
       <img src="Icons/Me.png" alt="Me">
@@ -256,12 +260,15 @@
         characterList.innerHTML = '';
         details.list.forEach(character => {
           const chara = document.createElement('div');
-          chara.innerHTML = `
-            <img src="${character.img}" alt="${character.name}" style="width:32px;height:32px;vertical-align:middle;margin-right:8px;">
+            chara.innerHTML = `
+            ${character.img ? 
+              `<img src="${character.img}" alt="${character.name}" style="width:32px;height:32px;vertical-align:middle;margin-right:8px;">` : 
+              `<span class="question-mark" style="display:inline-block;width:32px;height:32px;line-height:32px;text-align:center;font-size:24px;background:#eee;margin:0 8px 0 0;">?</span>`
+            }
             <strong>${character.name}</strong>
             <span style="cursor:pointer;color:#007bff;text-decoration:underline;margin-left:8px;" onclick="moodModal.style.display='none';showCharacterModal('${character.name}')">Details</span>
             <a href="${character.link}" target="_blank" style="margin-left:8px;">Chat</a>
-          `;
+            `;
           characterList.appendChild(chara);
         });
         randomLink.onclick = () => getRandomCharacter(details.list);

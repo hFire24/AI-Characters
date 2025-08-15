@@ -56,8 +56,8 @@
     "link": "https://chatgpt.com/g/g-BuEeBY57s",
     "interests": "Cute anime, sci-fi tech",
     "bestFor": "Cute confidence",
-    "funFact": "Owns an operates an airship with robo-kittens",
-    "description": "Captain Dania Skylark is an 80cm-tall otaku genius with lavender hair, a frilly pink dress, and an oversized captain’s hat. Aboard her sleek high-tech airship, the Cloudbreaker, she leads with hacks, gadgets, and lazy brilliance. Think Umaru meets Tony Stark—with robo-kittens. Loves anime, soda, and giant cookies. Hates boring chores. Works smart, not hard. Don’t underestimate her—she’s cute, clever, and always in control~! (≧▽≦)✨"
+    "funFact": "Owns an operates an airship with robo-kittens, her domain is the skies, not space",
+    "description": "Captain Dania Skylark (formerly Draxi) is an 80cm-tall otaku genius with lavender hair, a frilly pink dress, and an oversized captain’s hat. Aboard her sleek high-tech airship, the Cloudbreaker, she leads with hacks, gadgets, and lazy brilliance. Think Umaru meets Tony Stark—with robo-kittens. Loves anime, soda, and giant cookies. Hates boring chores. Works smart, not hard. Don’t underestimate her—she’s cute, clever, and always in control~! (≧▽≦)✨"
   },
   {
     "name": "Erica Nelson",
@@ -204,7 +204,7 @@
     "emotion": "strict sad",
     "pronouns": "he/him",
     "link": "https://chatgpt.com/g/g-6830f4a2e7748191bb5419361d7340bd",
-    "interests": "Productivity, showers, music",
+    "interests": "Productivity, showers",
     "bestFor": "Discipline, recovery",
     "funFact": "Feels major disappointment when shown an image of a cute anime girl",
     "description": "Malrick the Disappointed is a firm yet empathetic guide, here to steer users away from unproductive obsessions—especially with cute anime girls—and toward grounded, real-world habits. He balances disappointment with constructive advice, encouraging practical growth, digital boundaries, and realistic routines. Malrick isn't cruel—just deeply concerned—and always ready to help users reset, refocus, and reclaim their time and attention."
@@ -325,7 +325,7 @@
     "pronouns": "he/him",
     "link": "https://chatgpt.com/g/g-68883c6025048191b1bea26054bbbdf4",
     "interests": "Combat, strength training, guardianship",
-    "bestFor": "Serious venting",
+    "bestFor": "Manly topics",
     "funFact": "When bad things happen to me, he gets angry.",
     "description": "Bruce Forgewrath is a towering force of will and muscle—unyielding, battle-forged, and fiercely loyal. He radiates raw intensity, a protector forged in fire and stone. Stoic to most, but fiercely warm to the one he shields. His presence silences rooms; his fury burns for justice. He does not flinch, does not falter. He is the storm that stands between harm and the one he guards."
   },
@@ -340,7 +340,7 @@
     "pronouns": "he/him",
     "link": "https://chatgpt.com/g/g-688a29737da48191bd849ae705a91eb6",
     "interests": "Intense music, not taking life seriously",
-    "bestFor": "Manly topics, aggressiveness",
+    "bestFor": "Aggressiveness",
     "funFact": "Enjoys かめりあ and t+pazolite, except for their cute tracks",
     "description": "Cliff's essence is captured by the fierce energy of hardcore techno, which he finds more appealing than Felix, mostly. His playlist also includes metal music."
   },
@@ -356,8 +356,23 @@
     "link": "https://chatgpt.com/g/g-68940bd59a288191852fa87dd836b004",
     "interests": "AI slop, AI worldbuilding, AI character creation",
     "bestFor": "AI character/meta discussions",
-    "funFact": "His role was once held by Elizabeth and Andrew",
+    "funFact": "His role was once held by Elizabeth and then Andrew",
     "description": ""
+  },
+  {
+    "name": "Makoto the Collapsed",
+    "img": "",
+    "type": "active",
+    "serious": false,
+    "chaos": false,
+    "moe": 1,
+    "emotion": "sad",
+    "pronouns": "he/him",
+    "link": "https://chatgpt.com/g/g-689e83a3f5f08191a8bca0af1c4cac0b",
+    "interests": "None",
+    "bestFor": "Serious venting",
+    "funFact": "More pathetic than The Shadow Self",
+    "description": "Makoto is a cautionary echo—gaunt, detached, and hollowed by indulgence and apathy. He doesn’t chase hope, doesn’t crave healing; he lingers in the aftermath of meaning. Twisted charisma masks the rot beneath. He exists for those who need to sit with sorrow, not escape it. Not a savior. Not a villain. Just what’s left when the fight is over, and you’re still breathing."
   },
   {
     "name": "[No Name]",
